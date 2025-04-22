@@ -1,0 +1,11 @@
+D:\c\DO_AN_1_ver2\BLL\bin\Debug\BLL.dll
+D:\c\DO_AN_1_ver2\BLL\bin\Debug\BLL.pdb
+D:\c\DO_AN_1_ver2\BLL\bin\Debug\DAL.dll
+D:\c\DO_AN_1_ver2\BLL\bin\Debug\DTO.dll
+D:\c\DO_AN_1_ver2\BLL\bin\Debug\DAL.pdb
+D:\c\DO_AN_1_ver2\BLL\bin\Debug\DTO.pdb
+D:\c\DO_AN_1_ver2\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\c\DO_AN_1_ver2\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\c\DO_AN_1_ver2\BLL\obj\Debug\BLL.csproj.Up2Date
+D:\c\DO_AN_1_ver2\BLL\obj\Debug\BLL.dll
+D:\c\DO_AN_1_ver2\BLL\obj\Debug\BLL.pdb
