@@ -16,7 +16,7 @@ namespace DAL.Button_form
             using (SqlConnection conn = new SqlConnection(chuoikn))
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM ban";
+                string query = "SELECT COUNT(*) FROM list_table";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 return (int)cmd.ExecuteScalar();
             }
@@ -24,11 +24,11 @@ namespace DAL.Button_form
 
         public List<(int idban, string tenban, string trangthai)> GetAllTables()
         {
-            List<(int idban, string tenban, string trangthai)> tables = new List<(int, string, string)>();
+            List<(int table_ID, string table_name, string table_status)> tables = new List<(int, string, string)>();
             using (SqlConnection conn = new SqlConnection(chuoikn))
             {
                 conn.Open();
-                string query = "SELECT idban, tenban, trangthai FROM ban";
+                string query = "SELECT * FROM list_table";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -44,7 +44,7 @@ namespace DAL.Button_form
             using (SqlConnection conn = new SqlConnection(chuoikn))
             {
                 conn.Open();
-                string query = "INSERT INTO ban (tenban, trangthai) VALUES (@tenban, N'Trống')";
+                string query = "INSERT INTO list_table (table_name, table_status) VALUES (@tenban, N'Trống')";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@tenban", tableName);
                 cmd.ExecuteNonQuery();
@@ -58,7 +58,7 @@ namespace DAL.Button_form
                 conn.Open();
 
                 // Tìm ID bàn lớn nhất
-                string getMaxIdQuery = "SELECT MAX(idban) FROM ban";
+                string getMaxIdQuery = "SELECT MAX(table_ID) FROM list_table";
                 SqlCommand getMaxIdCmd = new SqlCommand(getMaxIdQuery, conn);
                 object result = getMaxIdCmd.ExecuteScalar();
 
@@ -67,13 +67,13 @@ namespace DAL.Button_form
                     int maxId = Convert.ToInt32(result);
 
                     // Xóa bàn có ID lớn nhất
-                    string deleteQuery = "DELETE FROM ban WHERE idban = @maxId";
+                    string deleteQuery = "DELETE FROM list_table WHERE table_ID = @maxId";
                     SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
                     deleteCmd.Parameters.AddWithValue("@maxId", maxId);
                     deleteCmd.ExecuteNonQuery();
 
                     // Reset lại IDENTITY về ID lớn nhất vừa xóa
-                    string reseedQuery = $"DBCC CHECKIDENT ('ban', RESEED, {maxId - 1})";
+                    string reseedQuery = $"DBCC CHECKIDENT ('list_table', RESEED, {maxId - 1})";
                     SqlCommand reseedCmd = new SqlCommand(reseedQuery, conn);
                     reseedCmd.ExecuteNonQuery();
                 }
@@ -92,7 +92,7 @@ namespace DAL.Button_form
                     conn.Open();
 
                     // Bước 1: Kiểm tra trạng thái bàn
-                    string sqlCheckBan = $"SELECT trangthai FROM ban WHERE idban = {idban}";
+                    string sqlCheckBan = $"SELECT table_status FROM list_table WHERE table_ID = {idban}";
                     SqlCommand cmdCheck = new SqlCommand(sqlCheckBan, conn);
                     string tableStatus = cmdCheck.ExecuteScalar()?.ToString();
 
@@ -102,17 +102,17 @@ namespace DAL.Button_form
                     }
 
                     // Bước 2: Thêm hóa đơn mới
-                    string sqlHoadon = "SELECT * FROM hoadon";
+                    string sqlHoadon = "SELECT * FROM bill";
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlHoadon, conn);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
                     DataRow newRow = dt.NewRow();
-                    newRow["ngaytao"] = DateTime.Now;
-                    newRow["hinhthuc"] = 0;
-                    newRow["tinhtrang"] = 0;
-                    newRow["idban"] = idban;
-                    newRow["tongtien"] = tongtien;
+                    newRow["day_creation"] = DateTime.Now;
+                    newRow["form"] = 0;
+                    newRow["bill_status"] = 0;
+                    newRow["table_ID"] = idban;
+                    newRow["total_bill"] = tongtien;
 
                     dt.Rows.Add(newRow);
 
@@ -121,24 +121,24 @@ namespace DAL.Button_form
 
                     // Bước 3: Lấy mã hóa đơn vừa thêm
                     int mahoadon;
-                    if (newRow["mahoadon"] != DBNull.Value)
+                    if (newRow["bill_ID"] != DBNull.Value)
                     {
-                        mahoadon = Convert.ToInt32(newRow["mahoadon"]);
+                        mahoadon = Convert.ToInt32(newRow["bill_ID"]);
                     }
                     else
                     {
-                        string sql = "SELECT IDENT_CURRENT('hoadon') AS LastID";
+                        string sql = "SELECT IDENT_CURRENT('bill') AS LastID";
                         cmd = new SqlCommand(sql, conn);
                         mahoadon = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
                     // Bước 4: Cập nhật trạng thái bàn
-                    string sqlBan = $"UPDATE ban SET trangthai = N'Có người' WHERE idban = {idban}";
+                    string sqlBan = $"UPDATE list_table SET table_status = N'Có người' WHERE table_ID = {idban}";
                     cmd = new SqlCommand(sqlBan, conn);
                     cmd.ExecuteNonQuery();
 
                     //Thêm chi tiết hóa đơn
-                    string sqlChitiet = "SELECT * FROM chitiethoadon";
+                    string sqlChitiet = "SELECT * FROM detail_bill";
                     adapter = new SqlDataAdapter(sqlChitiet, conn);
                     dt = new DataTable();
                     adapter.Fill(dt);
@@ -158,7 +158,7 @@ namespace DAL.Button_form
         {
             try
             {
-                string sqlChitiet = "SELECT * FROM chitiethoadon";
+                string sqlChitiet = "SELECT * FROM detail_bill";
                 adapter = new SqlDataAdapter(sqlChitiet, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -166,10 +166,10 @@ namespace DAL.Button_form
                 foreach (var item in chiTietHoaDons)
                 {
                     DataRow newDetailRow = dt.NewRow();
-                    newDetailRow["mahoadon"] = mahoadon;
-                    newDetailRow["idmenu"] = item.IdMenu;
-                    newDetailRow["soluong"] = item.SoLuong;
-                    newDetailRow["gia"] = item.Gia;
+                    newDetailRow["bill_ID"] = mahoadon;
+                    newDetailRow["ID_dish"] = item.IdMenu;
+                    newDetailRow["quantity"] = item.SoLuong;
+                    newDetailRow["price"] = item.Gia;
 
                     dt.Rows.Add(newDetailRow);
                 }
@@ -186,12 +186,12 @@ namespace DAL.Button_form
         public DataTable hienthiban(int idban)
         {
             string sqlChiTiet = $@"
-                SELECT ct.idmenu, m.ten, ct.soluong, (ct.soluong * m.gia) as gia
-                FROM ban b
-                INNER JOIN hoadon hd ON b.idban = hd.idban
-                INNER JOIN chitiethoadon ct ON ct.mahoadon = hd.mahoadon
-                INNER JOIN menu m ON m.id = ct.idmenu
-                WHERE b.idban = {idban} AND hd.tinhtrang = '0'";
+                SELECT ct.ID_dish, m.dish_name, ct.quantity, (ct.quantity * m.price) as gia
+                FROM list_table b
+                INNER JOIN bill hd ON b.table_ID = hd.table_ID
+                INNER JOIN detail_bill ct ON ct.bill_ID = hd.bill_ID
+                INNER JOIN menu m ON m.ID_dish = ct.ID_dish
+                WHERE b.table_ID = {idban} AND hd.bill_status = '0'";
 
 
             DataTable dt = new DataTable();
@@ -217,7 +217,7 @@ namespace DAL.Button_form
                     conn.Open();
 
                     //kiểm tra trạng thái của bàn
-                    string queryBan = $"SELECT * FROM ban WHERE idban = {idban}";
+                    string queryBan = $"SELECT * FROM list_table WHERE table_ID = {idban}";
                     DataTable dtBan = new DataTable();
                     SqlDataAdapter adapterBan = new SqlDataAdapter(queryBan, conn);
                     SqlCommandBuilder builderBan = new SqlCommandBuilder(adapterBan);
@@ -226,7 +226,7 @@ namespace DAL.Button_form
                     if (dtBan.Rows.Count > 0) //kiểm tra xem có dữ liệu trả về hay không 
                     {
                         DataRow rowBan = dtBan.Rows[0];// gán bàn vừa tìm được
-                        if (rowBan["trangthai"].ToString() == "Trống")
+                        if (rowBan["table_status"].ToString() == "Trống")
                         {
                             // Nếu bàn trống, thông báo không có hóa đơn
                             return -1; // Dừng thực hiện nếu bàn trống
@@ -234,7 +234,7 @@ namespace DAL.Button_form
                     }
 
                     //kiểm tra hóa đơn chưa thanh toán
-                    string queryHoaDon = $"SELECT * FROM hoadon WHERE idban = {idban} AND tinhtrang = '0'";
+                    string queryHoaDon = $"SELECT * FROM bill WHERE table_ID = {idban} AND bill_status = '0'";
                     DataTable dtHoaDon = new DataTable();
                     SqlDataAdapter adapterHoaDon = new SqlDataAdapter(queryHoaDon, conn);
                     SqlCommandBuilder builderHoaDon = new SqlCommandBuilder(adapterHoaDon);
@@ -244,7 +244,7 @@ namespace DAL.Button_form
                     if (dtHoaDon.Rows.Count > 0)
                     {
                         DataRow rowHoaDon = dtHoaDon.Rows[0];
-                        rowHoaDon["tinhtrang"] = "1"; // Đánh dấu hóa đơn là đã thanh toán
+                        rowHoaDon["bill_status"] = "1"; // Đánh dấu hóa đơn là đã thanh toán
                         adapterHoaDon.Update(dtHoaDon); // Cập nhật vào cơ sở dữ liệu
                     }
 
@@ -252,7 +252,7 @@ namespace DAL.Button_form
                     if (dtBan.Rows.Count > 0)
                     {
                         DataRow rowBan = dtBan.Rows[0];
-                        rowBan["trangthai"] = "Trống"; // Đánh dấu bàn là trống
+                        rowBan["table_status"] = "Trống"; // Đánh dấu bàn là trống
                         adapterBan.Update(dtBan); // Cập nhật vào cơ sở dữ liệu
                     }
                 }

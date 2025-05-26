@@ -67,9 +67,9 @@ namespace QUAN_LY_QUAN_NUOC
             //}
 
             FLP_datban.Controls.Clear();
-            var ban = datban.GetAllTables();
+            var list_table = datban.GetAllTables();
 
-            foreach (var table in ban)
+            foreach (var table in list_table)
             {
                 Button bantbn = new Button
                 {
@@ -229,7 +229,7 @@ namespace QUAN_LY_QUAN_NUOC
                                 MaHoaDon = mahoadon,
                                 IdMenu = Convert.ToInt32(row.Cells[0].Value),
                                 SoLuong = Convert.ToInt32(row.Cells[2].Value),
-                                Gia = Convert.ToInt32(row.Cells[3].Value)
+                                Gia = Convert.ToInt32(row.Cells[4].Value)
                             });
                         }
 

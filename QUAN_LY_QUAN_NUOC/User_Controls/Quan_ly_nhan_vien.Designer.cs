@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quan_ly_nhan_vien));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvqly_nv = new System.Windows.Forms.DataGridView();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.btn_addNV = new Guna.UI2.WinForms.Guna2Button();
             this.tpk_ngaysinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbb_calam = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbb_chucvu = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btn_delete = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_new = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_suaNV = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtpass = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,12 +54,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtphone_number = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtname = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTK = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_addNV = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_delete = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_new = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_suaNV = new Guna.UI2.WinForms.Guna2Button();
             this.btn_search = new Guna.UI2.WinForms.Guna2Button();
+            this.txtTK = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvqly_nv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -74,14 +74,14 @@
             this.dgvqly_nv.AllowUserToAddRows = false;
             this.dgvqly_nv.BackgroundColor = System.Drawing.Color.White;
             this.dgvqly_nv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvqly_nv.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvqly_nv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvqly_nv.Location = new System.Drawing.Point(4, 4);
             this.dgvqly_nv.Name = "dgvqly_nv";
             this.dgvqly_nv.RowHeadersWidth = 51;
@@ -148,6 +148,23 @@
             this.label8.Text = "ID:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btn_addNV
+            // 
+            this.btn_addNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_addNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_addNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_addNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_addNV.FillColor = System.Drawing.Color.Transparent;
+            this.btn_addNV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_addNV.ForeColor = System.Drawing.Color.White;
+            this.btn_addNV.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.add_nv_v2;
+            this.btn_addNV.ImageSize = new System.Drawing.Size(70, 70);
+            this.btn_addNV.Location = new System.Drawing.Point(192, 619);
+            this.btn_addNV.Name = "btn_addNV";
+            this.btn_addNV.Size = new System.Drawing.Size(107, 86);
+            this.btn_addNV.TabIndex = 28;
+            this.btn_addNV.Click += new System.EventHandler(this.btn_addNV_Click);
+            // 
             // tpk_ngaysinh
             // 
             this.tpk_ngaysinh.BackColor = System.Drawing.Color.Transparent;
@@ -180,7 +197,7 @@
             this.txtID.FillColor = System.Drawing.Color.DarkGray;
             this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtID.ForeColor = System.Drawing.Color.Black;
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Location = new System.Drawing.Point(423, 335);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -221,6 +238,57 @@
             this.cbb_chucvu.Size = new System.Drawing.Size(231, 36);
             this.cbb_chucvu.TabIndex = 25;
             // 
+            // btn_delete
+            // 
+            this.btn_delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_delete.FillColor = System.Drawing.Color.Transparent;
+            this.btn_delete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_delete.ForeColor = System.Drawing.Color.White;
+            this.btn_delete.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.delete_icon;
+            this.btn_delete.ImageSize = new System.Drawing.Size(70, 70);
+            this.btn_delete.Location = new System.Drawing.Point(509, 619);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(107, 86);
+            this.btn_delete.TabIndex = 23;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // btn_new
+            // 
+            this.btn_new.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_new.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_new.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_new.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_new.FillColor = System.Drawing.Color.Transparent;
+            this.btn_new.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_new.ForeColor = System.Drawing.Color.White;
+            this.btn_new.Image = ((System.Drawing.Image)(resources.GetObject("btn_new.Image")));
+            this.btn_new.ImageSize = new System.Drawing.Size(70, 70);
+            this.btn_new.Location = new System.Drawing.Point(30, 619);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(107, 86);
+            this.btn_new.TabIndex = 21;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
+            // 
+            // btn_suaNV
+            // 
+            this.btn_suaNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_suaNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_suaNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_suaNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_suaNV.FillColor = System.Drawing.Color.Transparent;
+            this.btn_suaNV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_suaNV.ForeColor = System.Drawing.Color.White;
+            this.btn_suaNV.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.sua_nv1;
+            this.btn_suaNV.ImageSize = new System.Drawing.Size(70, 70);
+            this.btn_suaNV.Location = new System.Drawing.Point(353, 619);
+            this.btn_suaNV.Name = "btn_suaNV";
+            this.btn_suaNV.Size = new System.Drawing.Size(107, 86);
+            this.btn_suaNV.TabIndex = 20;
+            this.btn_suaNV.Click += new System.EventHandler(this.btn_suaNV_Click);
+            // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -245,7 +313,7 @@
             this.txtpass.FillColor = System.Drawing.Color.DarkGray;
             this.txtpass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtpass.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtpass.ForeColor = System.Drawing.Color.Black;
+            this.txtpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtpass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtpass.Location = new System.Drawing.Point(192, 475);
             this.txtpass.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -302,7 +370,7 @@
             this.txtuser.FillColor = System.Drawing.Color.DarkGray;
             this.txtuser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtuser.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtuser.ForeColor = System.Drawing.Color.Black;
+            this.txtuser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtuser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtuser.Location = new System.Drawing.Point(192, 397);
             this.txtuser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -359,7 +427,7 @@
             this.txtphone_number.FillColor = System.Drawing.Color.DarkGray;
             this.txtphone_number.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtphone_number.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtphone_number.ForeColor = System.Drawing.Color.Black;
+            this.txtphone_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtphone_number.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtphone_number.Location = new System.Drawing.Point(192, 253);
             this.txtphone_number.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -383,7 +451,7 @@
             this.txtname.FillColor = System.Drawing.Color.DarkGray;
             this.txtname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtname.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtname.ForeColor = System.Drawing.Color.Black;
+            this.txtname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtname.Location = new System.Drawing.Point(192, 102);
             this.txtname.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -393,6 +461,23 @@
             this.txtname.SelectedText = "";
             this.txtname.Size = new System.Drawing.Size(330, 49);
             this.txtname.TabIndex = 2;
+            // 
+            // btn_search
+            // 
+            this.btn_search.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_search.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_search.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_search.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_search.FillColor = System.Drawing.Color.Transparent;
+            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_search.ForeColor = System.Drawing.Color.White;
+            this.btn_search.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.search_icon;
+            this.btn_search.ImageSize = new System.Drawing.Size(49, 49);
+            this.btn_search.Location = new System.Drawing.Point(444, 4);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(78, 63);
+            this.btn_search.TabIndex = 1;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // txtTK
             // 
@@ -417,91 +502,6 @@
             this.txtTK.SelectedText = "";
             this.txtTK.Size = new System.Drawing.Size(399, 49);
             this.txtTK.TabIndex = 0;
-            // 
-            // btn_addNV
-            // 
-            this.btn_addNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_addNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_addNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_addNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_addNV.FillColor = System.Drawing.Color.Transparent;
-            this.btn_addNV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_addNV.ForeColor = System.Drawing.Color.White;
-            this.btn_addNV.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.add_nv_v2;
-            this.btn_addNV.ImageSize = new System.Drawing.Size(70, 70);
-            this.btn_addNV.Location = new System.Drawing.Point(192, 619);
-            this.btn_addNV.Name = "btn_addNV";
-            this.btn_addNV.Size = new System.Drawing.Size(107, 86);
-            this.btn_addNV.TabIndex = 28;
-            this.btn_addNV.Click += new System.EventHandler(this.btn_addNV_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_delete.FillColor = System.Drawing.Color.Transparent;
-            this.btn_delete.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_delete.ForeColor = System.Drawing.Color.White;
-            this.btn_delete.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.delete_icon;
-            this.btn_delete.ImageSize = new System.Drawing.Size(70, 70);
-            this.btn_delete.Location = new System.Drawing.Point(509, 619);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(107, 86);
-            this.btn_delete.TabIndex = 23;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // btn_new
-            // 
-            this.btn_new.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_new.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_new.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_new.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_new.FillColor = System.Drawing.Color.Transparent;
-            this.btn_new.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_new.ForeColor = System.Drawing.Color.White;
-            this.btn_new.Image = ((System.Drawing.Image)(resources.GetObject("btn_new.Image")));
-            this.btn_new.ImageSize = new System.Drawing.Size(70, 70);
-            this.btn_new.Location = new System.Drawing.Point(30, 619);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(107, 86);
-            this.btn_new.TabIndex = 21;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
-            // 
-            // btn_suaNV
-            // 
-            this.btn_suaNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_suaNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_suaNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_suaNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_suaNV.FillColor = System.Drawing.Color.Transparent;
-            this.btn_suaNV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_suaNV.ForeColor = System.Drawing.Color.White;
-            this.btn_suaNV.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.sua_nv1;
-            this.btn_suaNV.ImageSize = new System.Drawing.Size(70, 70);
-            this.btn_suaNV.Location = new System.Drawing.Point(353, 619);
-            this.btn_suaNV.Name = "btn_suaNV";
-            this.btn_suaNV.Size = new System.Drawing.Size(107, 86);
-            this.btn_suaNV.TabIndex = 20;
-            this.btn_suaNV.Click += new System.EventHandler(this.btn_suaNV_Click);
-            // 
-            // btn_search
-            // 
-            this.btn_search.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_search.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_search.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_search.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_search.FillColor = System.Drawing.Color.Transparent;
-            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_search.ForeColor = System.Drawing.Color.White;
-            this.btn_search.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.search_icon;
-            this.btn_search.ImageSize = new System.Drawing.Size(49, 49);
-            this.btn_search.Location = new System.Drawing.Point(444, 4);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(78, 63);
-            this.btn_search.TabIndex = 1;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // Quan_ly_nhan_vien
             // 

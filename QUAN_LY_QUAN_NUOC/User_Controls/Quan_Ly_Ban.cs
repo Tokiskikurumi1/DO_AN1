@@ -41,7 +41,10 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
         {
             throw new NotImplementedException();
         }
-
+        private void Quan_Ly_Ban_Load(object sender, EventArgs e)
+        {
+            load_dgv_ban();
+        }
         void btn()
         {
             // Lấy tất cả các button trong FlowLayoutPanel
@@ -53,6 +56,17 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 btn.Click += btnBan_Click;
             }
         }
+
+        void load_dgv_ban()
+        {
+            dgvhoadon_ban.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvhoadon_ban.Columns[0].FillWeight = 10;
+            dgvhoadon_ban.Columns[1].FillWeight = 40;
+            dgvhoadon_ban.Columns[2].FillWeight = 20;
+            dgvhoadon_ban.Columns[3].FillWeight = 30;
+            dgvhoadon_ban.Columns[4].Visible = false;
+        }
+
         private void loadban()
         {
             FLP_ban.Controls.Clear();
@@ -163,6 +177,8 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 }
             }
         }
+
+        // HIỂN THỊ HÓA ĐƠN BÀN
         void HienThiThongTinBan(int idban)
         {
             try
@@ -172,7 +188,13 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 dgvhoadon_ban.Rows.Clear(); // Xóa các dòng cũ
                 foreach (DataRow rowChiTiet in dt.Rows)
                 {
-                    dgvhoadon_ban.Rows.Add(rowChiTiet["idmenu"], rowChiTiet["ten"], rowChiTiet["soluong"], rowChiTiet["gia"]);
+                    string priceFormatted = "";
+                    if (decimal.TryParse(rowChiTiet["gia"].ToString(), out decimal price))
+                    {
+                        priceFormatted = string.Format("{0:N0} VND", price);
+                    }
+                    dgvhoadon_ban.Rows.Add(rowChiTiet["ID_dish"], rowChiTiet["dish_name"], rowChiTiet["quantity"], priceFormatted, rowChiTiet["gia"]);
+                    //dgvhoadon_ban.Rows.Add(rowChiTiet["ID_dish"], rowChiTiet["dish_name"], rowChiTiet["quantity"], rowChiTiet["gia"]);
 
                     // Tính tổng tiền
                     tongTien += Convert.ToInt32(rowChiTiet["gia"]);

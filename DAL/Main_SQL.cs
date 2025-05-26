@@ -50,7 +50,7 @@ namespace DAL
         public DataTable dboSearch(string name)
         {
             dt = new DataTable();
-            string query = $"SELECT * FROM menu WHERE ten LIKE N'%{name}%'";
+            string query = $"SELECT * FROM menu WHERE dish_name LIKE N'%{name}%'";
             cmd = new SqlCommand(query, conn);
             adapter = new SqlDataAdapter(cmd);
             dt = new DataTable();

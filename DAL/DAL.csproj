@@ -49,7 +49,6 @@
     <Compile Include="Button_form\Quan_ly_hoa_don.cs" />
     <Compile Include="Button_form\Quan_ly_menu.cs" />
     <Compile Include="Button_form\Quan_ly_nhan_vien.cs" />
-    <Compile Include="Button_form\San_pham_ban_chay.cs" />
     <Compile Include="Button_form\Thong_ke_doanh_thu.cs" />
     <Compile Include="Button_form\Trang_chu.cs" />
     <Compile Include="Login.cs" />

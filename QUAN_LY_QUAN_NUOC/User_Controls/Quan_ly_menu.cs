@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using BLL.BLL;
 namespace QUAN_LY_QUAN_NUOC.User_Controls
 {
     public partial class Quan_ly_menu : UserControl
     {
-        BLL_connect qlymenu = new BLL_connect();
+        QuanLyMenu qlymenu = new QuanLyMenu();
         DataTable dt;
         public Trang_chu frm;
         public Quan_ly_menu()
@@ -67,6 +68,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             {
                 MessageBox.Show($"Lỗi: {ex.Message}");
             }
+            dgvqlmenu.CellFormatting += dgvqlmenu_CellFormatting;
         }
 
 
@@ -79,12 +81,12 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgvqlmenu.Columns[2].FillWeight = 20;
             dgvqlmenu.Columns[3].FillWeight = 20;
 
-            dgvqlmenu.Columns["id"].HeaderText = "ID";
-            dgvqlmenu.Columns["ten"].HeaderText = "Tên";
-            dgvqlmenu.Columns["gia"].HeaderText = "Giá";
-            dgvqlmenu.Columns["madanhmuc"].HeaderText = "Mã danh mục";
+            dgvqlmenu.Columns["ID_dish"].HeaderText = "ID";
+            dgvqlmenu.Columns["dish_name"].HeaderText = "Tên";
+            dgvqlmenu.Columns["price"].HeaderText = "Giá";
+            dgvqlmenu.Columns["list_ID"].HeaderText = "Mã danh mục";
 
-            dgvqlmenu.Columns["madanhmuc"].Visible = false;
+            dgvqlmenu.Columns["list_ID"].Visible = false;
 
         }
 
@@ -116,8 +118,8 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             try
             {
                 //dt = qlymenu.loadCCB();
-                cbbchonmenu.DisplayMember = "tendanhmuc";
-                cbbchonmenu.ValueMember = "madanhmuc";
+                cbbchonmenu.DisplayMember = "list_name";
+                cbbchonmenu.ValueMember = "list_ID";
                 cbbchonmenu.DataSource = qlymenu.loadCCB();
 
             }
@@ -201,7 +203,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             }
             if(!int.TryParse(txtGia.Text, out gia) || string.IsNullOrWhiteSpace(txtGia.Text))
             {
-                MessageBox.Show("Giá phải là số nguyên!");
+                MessageBox.Show("Giá phải là số nguyên và không được để trống!");
                 return;
             }
             string ErrorMess;
@@ -219,6 +221,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             
         }
 
+        // SỬA MÓN ĂN
         private void btnSua_Click(object sender, EventArgs e)
         {
             int id;
@@ -228,34 +231,69 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
 
             string errormess;
 
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("Không được để trống ID!");
+                return;
+            }
             if(!int.TryParse(txtID.Text, out id))
             {
-                MessageBox.Show("ID không chứa chữ cái!");
+                MessageBox.Show("ID phải là số nguyên!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtGia.Text))
+            {
+                MessageBox.Show("Không được để trống giá");
                 return;
             }
             if (!int.TryParse(txtGia.Text, out gia))
             {
-                MessageBox.Show("Giá phải là số nguyên ");
+                MessageBox.Show("Giá phải là số nguyên!");
+                return;
             }
 
             bool resut = qlymenu.SuaMonAn(id, name, gia, maDanhMuc,out errormess);
             if (resut)
             {
                 MessageBox.Show("Thay đổi thông tin thành công!");
+                LoadMenu("Tất cả");
+                reset();
             }
             else
             {
                 MessageBox.Show(errormess);
             }
-            LoadMenu("Tất cả");
-            reset();
+            
         }
 
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
             try
             {
-                LoadMenu("Tất cả");
+                int idmenu;
+                if (string.IsNullOrWhiteSpace(txtID.Text))
+                {
+                    MessageBox.Show("Không được để trống ID!");
+                    return;
+                }
+                if (!int.TryParse(txtID.Text, out idmenu))
+                {
+                    MessageBox.Show("ID phải là số nguyên!");
+                    return;
+                }
+                bool result = qlymenu.XoaMon(idmenu, out string mess);
+                if (result) 
+                {
+                    MessageBox.Show("Xóa thông tin món thành công!");
+                    LoadMenu("Tất cả");
+                    reset();
+                }
+                else
+                {
+                    MessageBox.Show(mess);
+                }
+                
             }
             catch (Exception ex)
             {
@@ -301,6 +339,30 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             using (var centerFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
             {
                 e.Graphics.DrawString(rowNumber, rowNumberFont, SystemBrushes.ControlText, headerBounds, centerFormat);
+            }
+        }
+
+        private void search_menu_Click(object sender, EventArgs e)
+        {
+            dgvqlmenu.DataSource = qlymenu.search(txtSearch.Text);
+        }
+
+        private void dgvqlmenu_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvqlmenu.Columns[e.ColumnIndex].Name == "price" && e.Value != null)
+            {
+                try
+                {
+                    if (decimal.TryParse(e.Value.ToString(), out decimal price))
+                    {
+                        e.Value = string.Format("{0:N0} VND", price);
+                        e.FormattingApplied = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
+                }
             }
         }
     }

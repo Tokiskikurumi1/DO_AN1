@@ -34,35 +34,35 @@ namespace DAL.Button_form
                     conn.Open();
 
                     // Bước 1: Thêm hóa đơn mới
-                    string sqlHoadon = "SELECT * FROM hoadon";
+                    string sqlHoadon = "SELECT * FROM bill";
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlHoadon, conn);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
                     DataRow newRow = dt.NewRow();
-                    newRow["ngaytao"] = DateTime.Now;
-                    newRow["hinhthuc"] = 1;  // Thanh toán ngay, không đặt bàn
-                    newRow["tinhtrang"] = 1;  // Đã thanh toán
-                    newRow["tongtien"] = tongtien;
+                    newRow["day_creation"] = DateTime.Now;
+                    newRow["form"] = 1;  // Thanh toán ngay, không đặt bàn
+                    newRow["bill_status"] = 1;  // Đã thanh toán
+                    newRow["total_bill"] = tongtien;
                     dt.Rows.Add(newRow);
 
                     SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
                     adapter.Update(dt);
                     int mahoadon;
                     // Bước 2: Lấy mã hóa đơn mới
-                    if (newRow["mahoadon"] != DBNull.Value)
+                    if (newRow["bill_ID"] != DBNull.Value)
                     {
-                        mahoadon = Convert.ToInt32(newRow["mahoadon"]);
+                        mahoadon = Convert.ToInt32(newRow["bill_ID"]);
                     }
                     else
                     {
-                        string getmahd = "SELECT IDENT_CURRENT('hoadon') AS LastID";
+                        string getmahd = "SELECT IDENT_CURRENT('bill') AS LastID";
                         SqlCommand cmdgethd = new SqlCommand(getmahd, conn);
                         mahoadon = Convert.ToInt32(cmdgethd.ExecuteScalar());
                     }
 
                     // Bước 3: Lưu chi tiết hóa đơn
-                    string sqlChitiet = "SELECT * FROM chitiethoadon";
+                    string sqlChitiet = "SELECT * FROM detail_bill";
                     adapter = new SqlDataAdapter(sqlChitiet, conn);
                     dt = new DataTable();
                     adapter.Fill(dt);

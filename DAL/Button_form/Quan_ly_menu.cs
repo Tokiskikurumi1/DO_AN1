@@ -7,11 +7,25 @@ using System.Data.SqlClient;
 using System.Data;
 namespace DAL.Button_form
 {
-    public class Quan_ly_menu:Main_SQL
+    public interface IQuanLyMenuDal
     {
+        DataTable dboloadDM(char maDM);
+        DataTable load_menu();
+        bool ThemMon(int id, string name, int gia, string maDanhMuc);
+        bool SuaMenu(int id, string name, int gia, string maDanhMuc);
+        bool XoaMenu(int id);
+        bool CheckIdExists(int id);
+        DataTable GetDanhMuc();
+        DataTable dboSearch(string name);
+        DataTable searchs_tt(string name);
+    }
+
+    public class Quan_ly_menu:Main_SQL, IQuanLyMenuDal
+    {
+
         public Quan_ly_menu()
         {
-            conn = new SqlConnection(chuoikn);
+            conn = new SqlConnection(@"Data Source=KURUMI\KURUMI;Initial Catalog=Quan_ly_Quan_nuoc;Persist Security Info=True;User ID=sa;Password=Tokisakikurumi1@");
         }
         public DataTable load_menu()
         {
@@ -22,7 +36,7 @@ namespace DAL.Button_form
         {
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select * from menu where madanhmuc = " + $"'DM0{MaDM}'";
+            cmd.CommandText = "select * from menu where list_ID = " + $"'DM0{MaDM}'";
             cmd.Connection = conn;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = cmd;
@@ -37,10 +51,10 @@ namespace DAL.Button_form
                 KetNoi();
                 DataTable them = dboload("menu");
                 DataRow dr = them.NewRow();
-                dr["id"] = id;
-                dr["ten"] = name;
-                dr["gia"] = gia;
-                dr["maDanhMuc"] = maDanhMuc;
+                dr["ID_dish"] = id;
+                dr["dish_name"] = name;
+                dr["price"] = gia;
+                dr["list_ID"] = maDanhMuc;
                 them.Rows.Add(dr);
 
                 SqlCommandBuilder bd = new SqlCommandBuilder(adapter);
@@ -87,14 +101,14 @@ namespace DAL.Button_form
         //
 
         // XÓA MÓN TRONG MENU
-        public bool XoaMenu(string name_table, int id)
+        public bool XoaMenu(int id)
         {
             try
             {
                 KetNoi();
                 dt = new DataTable();
                 cmd = new SqlCommand();
-                cmd.CommandText = $"delete from {name_table} where id = {id}";
+                cmd.CommandText = $"delete from menu where ID_dish = {id}";
                 cmd.Connection = conn;
                 adapter = new SqlDataAdapter();
                 adapter.SelectCommand = cmd;
@@ -111,7 +125,7 @@ namespace DAL.Button_form
         public bool CheckIdExists(int id)
         {
             KetNoi();
-            string query = $"SELECT COUNT(*) FROM menu WHERE id =  {id}"; 
+            string query = $"SELECT COUNT(*) FROM menu WHERE ID_dish =  {id}"; 
             cmd = new SqlCommand(query, conn);
             int i = (int)cmd.ExecuteScalar();
             NgatKn();
@@ -120,13 +134,18 @@ namespace DAL.Button_form
 
         public DataTable GetDanhMuc()
         {
-            DataTable dt = dboload("danhmuc");
+            DataTable dt = dboload("list_dish");
             DataRow newRow = dt.NewRow();
-            newRow["madanhmuc"] = DBNull.Value;
-            newRow["tendanhmuc"] = "Chọn danh mục";
+            newRow["list_ID"] = DBNull.Value;
+            newRow["list_name"] = "Chọn danh mục";
             dt.Rows.InsertAt(newRow, 0);
 
             return dt;
+        }
+
+        public DataTable searchs_tt(string name)
+        {
+            return dboSearch(name);
         }
     }
 }

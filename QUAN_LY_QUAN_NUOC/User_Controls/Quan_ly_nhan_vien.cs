@@ -5,15 +5,18 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
+using BLL.BLL;
 using CrystalDecisions.Shared.Json;
+
+
 namespace QUAN_LY_QUAN_NUOC.User_Controls
 {
     public partial class Quan_ly_nhan_vien : UserControl
     {
-        private BLL_connect bll_qly = new BLL_connect();
+        private QuanLyNhanVIen bll_qly = new QuanLyNhanVIen();
         public Quan_ly_nhan_vien()
         {
             InitializeComponent();
@@ -166,6 +169,18 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                     return;
                 }
 
+                if (string.IsNullOrWhiteSpace(txtphone_number.Text))
+                {
+                    MessageBox.Show("Số điện thoại không được để trống!");
+                    return;
+                }
+
+                if (!check_phone(phonenumber))
+                {
+                    MessageBox.Show("Chỉ được nhập 10 chữ số và không nhập ký tự khác!");
+                    return;
+                }
+
                 string errormess;
                 bool result = bll_qly.ThemNV(id, ten, ngaysinh, phonenumber, ca_lam, username, pass, chuc_vu, out errormess);
 
@@ -269,6 +284,12 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 MessageBox.Show($"Lỗi: {ex}");
             }
 
+        }
+
+        private bool check_phone(string input)
+        {
+            // Chỉ cho phép các số từ 0 đến 9, độ dài 10 số
+            return Regex.IsMatch(input, @"^\d{10}$");
         }
     }
 }

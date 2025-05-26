@@ -24,9 +24,9 @@ namespace QUAN_LY_QUAN_NUOC {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DATASET_xuatHD : global::System.Data.DataSet {
         
-        private hoadonDataTable tablehoadon;
+        private billDataTable tablebill;
         
-        private chitiethoadonDataTable tablechitiethoadon;
+        private detail_billDataTable tabledetail_bill;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -56,11 +56,11 @@ namespace QUAN_LY_QUAN_NUOC {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["hoadon"] != null)) {
-                    base.Tables.Add(new hoadonDataTable(ds.Tables["hoadon"]));
+                if ((ds.Tables["bill"] != null)) {
+                    base.Tables.Add(new billDataTable(ds.Tables["bill"]));
                 }
-                if ((ds.Tables["chitiethoadon"] != null)) {
-                    base.Tables.Add(new chitiethoadonDataTable(ds.Tables["chitiethoadon"]));
+                if ((ds.Tables["detail_bill"] != null)) {
+                    base.Tables.Add(new detail_billDataTable(ds.Tables["detail_bill"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -84,9 +84,9 @@ namespace QUAN_LY_QUAN_NUOC {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public hoadonDataTable hoadon {
+        public billDataTable bill {
             get {
-                return this.tablehoadon;
+                return this.tablebill;
             }
         }
         
@@ -94,9 +94,9 @@ namespace QUAN_LY_QUAN_NUOC {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public chitiethoadonDataTable chitiethoadon {
+        public detail_billDataTable detail_bill {
             get {
-                return this.tablechitiethoadon;
+                return this.tabledetail_bill;
             }
         }
         
@@ -167,11 +167,11 @@ namespace QUAN_LY_QUAN_NUOC {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["hoadon"] != null)) {
-                    base.Tables.Add(new hoadonDataTable(ds.Tables["hoadon"]));
+                if ((ds.Tables["bill"] != null)) {
+                    base.Tables.Add(new billDataTable(ds.Tables["bill"]));
                 }
-                if ((ds.Tables["chitiethoadon"] != null)) {
-                    base.Tables.Add(new chitiethoadonDataTable(ds.Tables["chitiethoadon"]));
+                if ((ds.Tables["detail_bill"] != null)) {
+                    base.Tables.Add(new detail_billDataTable(ds.Tables["detail_bill"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +206,16 @@ namespace QUAN_LY_QUAN_NUOC {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablehoadon = ((hoadonDataTable)(base.Tables["hoadon"]));
+            this.tablebill = ((billDataTable)(base.Tables["bill"]));
             if ((initTable == true)) {
-                if ((this.tablehoadon != null)) {
-                    this.tablehoadon.InitVars();
+                if ((this.tablebill != null)) {
+                    this.tablebill.InitVars();
                 }
             }
-            this.tablechitiethoadon = ((chitiethoadonDataTable)(base.Tables["chitiethoadon"]));
+            this.tabledetail_bill = ((detail_billDataTable)(base.Tables["detail_bill"]));
             if ((initTable == true)) {
-                if ((this.tablechitiethoadon != null)) {
-                    this.tablechitiethoadon.InitVars();
+                if ((this.tabledetail_bill != null)) {
+                    this.tabledetail_bill.InitVars();
                 }
             }
         }
@@ -228,21 +228,21 @@ namespace QUAN_LY_QUAN_NUOC {
             this.Namespace = "http://tempuri.org/DATASET_xuatHD.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablehoadon = new hoadonDataTable();
-            base.Tables.Add(this.tablehoadon);
-            this.tablechitiethoadon = new chitiethoadonDataTable();
-            base.Tables.Add(this.tablechitiethoadon);
+            this.tablebill = new billDataTable();
+            base.Tables.Add(this.tablebill);
+            this.tabledetail_bill = new detail_billDataTable();
+            base.Tables.Add(this.tabledetail_bill);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializehoadon() {
+        private bool ShouldSerializebill() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializechitiethoadon() {
+        private bool ShouldSerializedetail_bill() {
             return false;
         }
         
@@ -302,26 +302,26 @@ namespace QUAN_LY_QUAN_NUOC {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void hoadonRowChangeEventHandler(object sender, hoadonRowChangeEvent e);
+        public delegate void billRowChangeEventHandler(object sender, billRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void chitiethoadonRowChangeEventHandler(object sender, chitiethoadonRowChangeEvent e);
+        public delegate void detail_billRowChangeEventHandler(object sender, detail_billRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class hoadonDataTable : global::System.Data.TypedTableBase<hoadonRow> {
+        public partial class billDataTable : global::System.Data.TypedTableBase<billRow> {
             
-            private global::System.Data.DataColumn columnmahoadon;
+            private global::System.Data.DataColumn columnbill_ID;
             
-            private global::System.Data.DataColumn columntongtien;
+            private global::System.Data.DataColumn columntotal_bill;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public hoadonDataTable() {
-                this.TableName = "hoadon";
+            public billDataTable() {
+                this.TableName = "bill";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -329,7 +329,7 @@ namespace QUAN_LY_QUAN_NUOC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal hoadonDataTable(global::System.Data.DataTable table) {
+            internal billDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -346,24 +346,24 @@ namespace QUAN_LY_QUAN_NUOC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected hoadonDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected billDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn mahoadonColumn {
+            public global::System.Data.DataColumn bill_IDColumn {
                 get {
-                    return this.columnmahoadon;
+                    return this.columnbill_ID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn tongtienColumn {
+            public global::System.Data.DataColumn total_billColumn {
                 get {
-                    return this.columntongtien;
+                    return this.columntotal_bill;
                 }
             }
             
@@ -378,46 +378,46 @@ namespace QUAN_LY_QUAN_NUOC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public hoadonRow this[int index] {
+            public billRow this[int index] {
                 get {
-                    return ((hoadonRow)(this.Rows[index]));
+                    return ((billRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event hoadonRowChangeEventHandler hoadonRowChanging;
+            public event billRowChangeEventHandler billRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event hoadonRowChangeEventHandler hoadonRowChanged;
+            public event billRowChangeEventHandler billRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event hoadonRowChangeEventHandler hoadonRowDeleting;
+            public event billRowChangeEventHandler billRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event hoadonRowChangeEventHandler hoadonRowDeleted;
+            public event billRowChangeEventHandler billRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddhoadonRow(hoadonRow row) {
+            public void AddbillRow(billRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public hoadonRow AddhoadonRow(int mahoadon, int tongtien) {
-                hoadonRow rowhoadonRow = ((hoadonRow)(this.NewRow()));
+            public billRow AddbillRow(int bill_ID, int total_bill) {
+                billRow rowbillRow = ((billRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        mahoadon,
-                        tongtien};
-                rowhoadonRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowhoadonRow);
-                return rowhoadonRow;
+                        bill_ID,
+                        total_bill};
+                rowbillRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowbillRow);
+                return rowbillRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                hoadonDataTable cln = ((hoadonDataTable)(base.Clone()));
+                billDataTable cln = ((billDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -425,49 +425,49 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new hoadonDataTable();
+                return new billDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnmahoadon = base.Columns["mahoadon"];
-                this.columntongtien = base.Columns["tongtien"];
+                this.columnbill_ID = base.Columns["bill_ID"];
+                this.columntotal_bill = base.Columns["total_bill"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnmahoadon = new global::System.Data.DataColumn("mahoadon", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmahoadon);
-                this.columntongtien = new global::System.Data.DataColumn("tongtien", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntongtien);
+                this.columnbill_ID = new global::System.Data.DataColumn("bill_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbill_ID);
+                this.columntotal_bill = new global::System.Data.DataColumn("total_bill", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal_bill);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public hoadonRow NewhoadonRow() {
-                return ((hoadonRow)(this.NewRow()));
+            public billRow NewbillRow() {
+                return ((billRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new hoadonRow(builder);
+                return new billRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(hoadonRow);
+                return typeof(billRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.hoadonRowChanged != null)) {
-                    this.hoadonRowChanged(this, new hoadonRowChangeEvent(((hoadonRow)(e.Row)), e.Action));
+                if ((this.billRowChanged != null)) {
+                    this.billRowChanged(this, new billRowChangeEvent(((billRow)(e.Row)), e.Action));
                 }
             }
             
@@ -475,8 +475,8 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.hoadonRowChanging != null)) {
-                    this.hoadonRowChanging(this, new hoadonRowChangeEvent(((hoadonRow)(e.Row)), e.Action));
+                if ((this.billRowChanging != null)) {
+                    this.billRowChanging(this, new billRowChangeEvent(((billRow)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +484,8 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.hoadonRowDeleted != null)) {
-                    this.hoadonRowDeleted(this, new hoadonRowChangeEvent(((hoadonRow)(e.Row)), e.Action));
+                if ((this.billRowDeleted != null)) {
+                    this.billRowDeleted(this, new billRowChangeEvent(((billRow)(e.Row)), e.Action));
                 }
             }
             
@@ -493,14 +493,14 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.hoadonRowDeleting != null)) {
-                    this.hoadonRowDeleting(this, new hoadonRowChangeEvent(((hoadonRow)(e.Row)), e.Action));
+                if ((this.billRowDeleting != null)) {
+                    this.billRowDeleting(this, new billRowChangeEvent(((billRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovehoadonRow(hoadonRow row) {
+            public void RemovebillRow(billRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -527,7 +527,7 @@ namespace QUAN_LY_QUAN_NUOC {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "hoadonDataTable";
+                attribute2.FixedValue = "billDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -573,22 +573,22 @@ namespace QUAN_LY_QUAN_NUOC {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class chitiethoadonDataTable : global::System.Data.TypedTableBase<chitiethoadonRow> {
+        public partial class detail_billDataTable : global::System.Data.TypedTableBase<detail_billRow> {
             
-            private global::System.Data.DataColumn columnmahoadon;
+            private global::System.Data.DataColumn columnbill_ID;
             
-            private global::System.Data.DataColumn columnidmenu;
+            private global::System.Data.DataColumn columnID_dish;
             
-            private global::System.Data.DataColumn columnsoluong;
+            private global::System.Data.DataColumn columnquantity;
             
-            private global::System.Data.DataColumn columngia;
+            private global::System.Data.DataColumn columnprice;
             
-            private global::System.Data.DataColumn columnten;
+            private global::System.Data.DataColumn columndish_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public chitiethoadonDataTable() {
-                this.TableName = "chitiethoadon";
+            public detail_billDataTable() {
+                this.TableName = "detail_bill";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -596,7 +596,7 @@ namespace QUAN_LY_QUAN_NUOC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal chitiethoadonDataTable(global::System.Data.DataTable table) {
+            internal detail_billDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -613,48 +613,48 @@ namespace QUAN_LY_QUAN_NUOC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected chitiethoadonDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected detail_billDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn mahoadonColumn {
+            public global::System.Data.DataColumn bill_IDColumn {
                 get {
-                    return this.columnmahoadon;
+                    return this.columnbill_ID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn idmenuColumn {
+            public global::System.Data.DataColumn ID_dishColumn {
                 get {
-                    return this.columnidmenu;
+                    return this.columnID_dish;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn soluongColumn {
+            public global::System.Data.DataColumn quantityColumn {
                 get {
-                    return this.columnsoluong;
+                    return this.columnquantity;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn giaColumn {
+            public global::System.Data.DataColumn priceColumn {
                 get {
-                    return this.columngia;
+                    return this.columnprice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn tenColumn {
+            public global::System.Data.DataColumn dish_nameColumn {
                 get {
-                    return this.columnten;
+                    return this.columndish_name;
                 }
             }
             
@@ -669,49 +669,49 @@ namespace QUAN_LY_QUAN_NUOC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public chitiethoadonRow this[int index] {
+            public detail_billRow this[int index] {
                 get {
-                    return ((chitiethoadonRow)(this.Rows[index]));
+                    return ((detail_billRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event chitiethoadonRowChangeEventHandler chitiethoadonRowChanging;
+            public event detail_billRowChangeEventHandler detail_billRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event chitiethoadonRowChangeEventHandler chitiethoadonRowChanged;
+            public event detail_billRowChangeEventHandler detail_billRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event chitiethoadonRowChangeEventHandler chitiethoadonRowDeleting;
+            public event detail_billRowChangeEventHandler detail_billRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event chitiethoadonRowChangeEventHandler chitiethoadonRowDeleted;
+            public event detail_billRowChangeEventHandler detail_billRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddchitiethoadonRow(chitiethoadonRow row) {
+            public void Adddetail_billRow(detail_billRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public chitiethoadonRow AddchitiethoadonRow(string mahoadon, string idmenu, string soluong, string gia, string ten) {
-                chitiethoadonRow rowchitiethoadonRow = ((chitiethoadonRow)(this.NewRow()));
+            public detail_billRow Adddetail_billRow(int bill_ID, int ID_dish, decimal quantity, decimal price, string dish_name) {
+                detail_billRow rowdetail_billRow = ((detail_billRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        mahoadon,
-                        idmenu,
-                        soluong,
-                        gia,
-                        ten};
-                rowchitiethoadonRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowchitiethoadonRow);
-                return rowchitiethoadonRow;
+                        bill_ID,
+                        ID_dish,
+                        quantity,
+                        price,
+                        dish_name};
+                rowdetail_billRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdetail_billRow);
+                return rowdetail_billRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                chitiethoadonDataTable cln = ((chitiethoadonDataTable)(base.Clone()));
+                detail_billDataTable cln = ((detail_billDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -719,58 +719,58 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new chitiethoadonDataTable();
+                return new detail_billDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnmahoadon = base.Columns["mahoadon"];
-                this.columnidmenu = base.Columns["idmenu"];
-                this.columnsoluong = base.Columns["soluong"];
-                this.columngia = base.Columns["gia"];
-                this.columnten = base.Columns["ten"];
+                this.columnbill_ID = base.Columns["bill_ID"];
+                this.columnID_dish = base.Columns["ID_dish"];
+                this.columnquantity = base.Columns["quantity"];
+                this.columnprice = base.Columns["price"];
+                this.columndish_name = base.Columns["dish_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnmahoadon = new global::System.Data.DataColumn("mahoadon", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmahoadon);
-                this.columnidmenu = new global::System.Data.DataColumn("idmenu", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidmenu);
-                this.columnsoluong = new global::System.Data.DataColumn("soluong", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsoluong);
-                this.columngia = new global::System.Data.DataColumn("gia", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columngia);
-                this.columnten = new global::System.Data.DataColumn("ten", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnten);
+                this.columnbill_ID = new global::System.Data.DataColumn("bill_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbill_ID);
+                this.columnID_dish = new global::System.Data.DataColumn("ID_dish", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_dish);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
+                this.columndish_name = new global::System.Data.DataColumn("dish_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndish_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public chitiethoadonRow NewchitiethoadonRow() {
-                return ((chitiethoadonRow)(this.NewRow()));
+            public detail_billRow Newdetail_billRow() {
+                return ((detail_billRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new chitiethoadonRow(builder);
+                return new detail_billRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(chitiethoadonRow);
+                return typeof(detail_billRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.chitiethoadonRowChanged != null)) {
-                    this.chitiethoadonRowChanged(this, new chitiethoadonRowChangeEvent(((chitiethoadonRow)(e.Row)), e.Action));
+                if ((this.detail_billRowChanged != null)) {
+                    this.detail_billRowChanged(this, new detail_billRowChangeEvent(((detail_billRow)(e.Row)), e.Action));
                 }
             }
             
@@ -778,8 +778,8 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.chitiethoadonRowChanging != null)) {
-                    this.chitiethoadonRowChanging(this, new chitiethoadonRowChangeEvent(((chitiethoadonRow)(e.Row)), e.Action));
+                if ((this.detail_billRowChanging != null)) {
+                    this.detail_billRowChanging(this, new detail_billRowChangeEvent(((detail_billRow)(e.Row)), e.Action));
                 }
             }
             
@@ -787,8 +787,8 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.chitiethoadonRowDeleted != null)) {
-                    this.chitiethoadonRowDeleted(this, new chitiethoadonRowChangeEvent(((chitiethoadonRow)(e.Row)), e.Action));
+                if ((this.detail_billRowDeleted != null)) {
+                    this.detail_billRowDeleted(this, new detail_billRowChangeEvent(((detail_billRow)(e.Row)), e.Action));
                 }
             }
             
@@ -796,14 +796,14 @@ namespace QUAN_LY_QUAN_NUOC {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.chitiethoadonRowDeleting != null)) {
-                    this.chitiethoadonRowDeleting(this, new chitiethoadonRowChangeEvent(((chitiethoadonRow)(e.Row)), e.Action));
+                if ((this.detail_billRowDeleting != null)) {
+                    this.detail_billRowDeleting(this, new detail_billRowChangeEvent(((detail_billRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovechitiethoadonRow(chitiethoadonRow row) {
+            public void Removedetail_billRow(detail_billRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -830,7 +830,7 @@ namespace QUAN_LY_QUAN_NUOC {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "chitiethoadonDataTable";
+                attribute2.FixedValue = "detail_billDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -874,226 +874,226 @@ namespace QUAN_LY_QUAN_NUOC {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class hoadonRow : global::System.Data.DataRow {
+        public partial class billRow : global::System.Data.DataRow {
             
-            private hoadonDataTable tablehoadon;
+            private billDataTable tablebill;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal hoadonRow(global::System.Data.DataRowBuilder rb) : 
+            internal billRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablehoadon = ((hoadonDataTable)(this.Table));
+                this.tablebill = ((billDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int mahoadon {
+            public int bill_ID {
                 get {
                     try {
-                        return ((int)(this[this.tablehoadon.mahoadonColumn]));
+                        return ((int)(this[this.tablebill.bill_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'mahoadon\' in table \'hoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'bill_ID\' in table \'bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablehoadon.mahoadonColumn] = value;
+                    this[this.tablebill.bill_IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int tongtien {
+            public int total_bill {
                 get {
                     try {
-                        return ((int)(this[this.tablehoadon.tongtienColumn]));
+                        return ((int)(this[this.tablebill.total_billColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'tongtien\' in table \'hoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'total_bill\' in table \'bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablehoadon.tongtienColumn] = value;
+                    this[this.tablebill.total_billColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsmahoadonNull() {
-                return this.IsNull(this.tablehoadon.mahoadonColumn);
+            public bool Isbill_IDNull() {
+                return this.IsNull(this.tablebill.bill_IDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetmahoadonNull() {
-                this[this.tablehoadon.mahoadonColumn] = global::System.Convert.DBNull;
+            public void Setbill_IDNull() {
+                this[this.tablebill.bill_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IstongtienNull() {
-                return this.IsNull(this.tablehoadon.tongtienColumn);
+            public bool Istotal_billNull() {
+                return this.IsNull(this.tablebill.total_billColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SettongtienNull() {
-                this[this.tablehoadon.tongtienColumn] = global::System.Convert.DBNull;
+            public void Settotal_billNull() {
+                this[this.tablebill.total_billColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class chitiethoadonRow : global::System.Data.DataRow {
+        public partial class detail_billRow : global::System.Data.DataRow {
             
-            private chitiethoadonDataTable tablechitiethoadon;
+            private detail_billDataTable tabledetail_bill;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal chitiethoadonRow(global::System.Data.DataRowBuilder rb) : 
+            internal detail_billRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablechitiethoadon = ((chitiethoadonDataTable)(this.Table));
+                this.tabledetail_bill = ((detail_billDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string mahoadon {
+            public int bill_ID {
                 get {
                     try {
-                        return ((string)(this[this.tablechitiethoadon.mahoadonColumn]));
+                        return ((int)(this[this.tabledetail_bill.bill_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'mahoadon\' in table \'chitiethoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'bill_ID\' in table \'detail_bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablechitiethoadon.mahoadonColumn] = value;
+                    this[this.tabledetail_bill.bill_IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string idmenu {
+            public int ID_dish {
                 get {
                     try {
-                        return ((string)(this[this.tablechitiethoadon.idmenuColumn]));
+                        return ((int)(this[this.tabledetail_bill.ID_dishColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idmenu\' in table \'chitiethoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID_dish\' in table \'detail_bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablechitiethoadon.idmenuColumn] = value;
+                    this[this.tabledetail_bill.ID_dishColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string soluong {
+            public decimal quantity {
                 get {
                     try {
-                        return ((string)(this[this.tablechitiethoadon.soluongColumn]));
+                        return ((decimal)(this[this.tabledetail_bill.quantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'soluong\' in table \'chitiethoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'detail_bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablechitiethoadon.soluongColumn] = value;
+                    this[this.tabledetail_bill.quantityColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string gia {
+            public decimal price {
                 get {
                     try {
-                        return ((string)(this[this.tablechitiethoadon.giaColumn]));
+                        return ((decimal)(this[this.tabledetail_bill.priceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'gia\' in table \'chitiethoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'detail_bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablechitiethoadon.giaColumn] = value;
+                    this[this.tabledetail_bill.priceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ten {
+            public string dish_name {
                 get {
                     try {
-                        return ((string)(this[this.tablechitiethoadon.tenColumn]));
+                        return ((string)(this[this.tabledetail_bill.dish_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ten\' in table \'chitiethoadon\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'dish_name\' in table \'detail_bill\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablechitiethoadon.tenColumn] = value;
+                    this[this.tabledetail_bill.dish_nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsmahoadonNull() {
-                return this.IsNull(this.tablechitiethoadon.mahoadonColumn);
+            public bool Isbill_IDNull() {
+                return this.IsNull(this.tabledetail_bill.bill_IDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetmahoadonNull() {
-                this[this.tablechitiethoadon.mahoadonColumn] = global::System.Convert.DBNull;
+            public void Setbill_IDNull() {
+                this[this.tabledetail_bill.bill_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsidmenuNull() {
-                return this.IsNull(this.tablechitiethoadon.idmenuColumn);
+            public bool IsID_dishNull() {
+                return this.IsNull(this.tabledetail_bill.ID_dishColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetidmenuNull() {
-                this[this.tablechitiethoadon.idmenuColumn] = global::System.Convert.DBNull;
+            public void SetID_dishNull() {
+                this[this.tabledetail_bill.ID_dishColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IssoluongNull() {
-                return this.IsNull(this.tablechitiethoadon.soluongColumn);
+            public bool IsquantityNull() {
+                return this.IsNull(this.tabledetail_bill.quantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetsoluongNull() {
-                this[this.tablechitiethoadon.soluongColumn] = global::System.Convert.DBNull;
+            public void SetquantityNull() {
+                this[this.tabledetail_bill.quantityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsgiaNull() {
-                return this.IsNull(this.tablechitiethoadon.giaColumn);
+            public bool IspriceNull() {
+                return this.IsNull(this.tabledetail_bill.priceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetgiaNull() {
-                this[this.tablechitiethoadon.giaColumn] = global::System.Convert.DBNull;
+            public void SetpriceNull() {
+                this[this.tabledetail_bill.priceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IstenNull() {
-                return this.IsNull(this.tablechitiethoadon.tenColumn);
+            public bool Isdish_nameNull() {
+                return this.IsNull(this.tabledetail_bill.dish_nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SettenNull() {
-                this[this.tablechitiethoadon.tenColumn] = global::System.Convert.DBNull;
+            public void Setdish_nameNull() {
+                this[this.tabledetail_bill.dish_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1101,22 +1101,22 @@ namespace QUAN_LY_QUAN_NUOC {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class hoadonRowChangeEvent : global::System.EventArgs {
+        public class billRowChangeEvent : global::System.EventArgs {
             
-            private hoadonRow eventRow;
+            private billRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public hoadonRowChangeEvent(hoadonRow row, global::System.Data.DataRowAction action) {
+            public billRowChangeEvent(billRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public hoadonRow Row {
+            public billRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1135,22 +1135,22 @@ namespace QUAN_LY_QUAN_NUOC {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class chitiethoadonRowChangeEvent : global::System.EventArgs {
+        public class detail_billRowChangeEvent : global::System.EventArgs {
             
-            private chitiethoadonRow eventRow;
+            private detail_billRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public chitiethoadonRowChangeEvent(chitiethoadonRow row, global::System.Data.DataRowAction action) {
+            public detail_billRowChangeEvent(detail_billRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public chitiethoadonRow Row {
+            public detail_billRow Row {
                 get {
                     return this.eventRow;
                 }

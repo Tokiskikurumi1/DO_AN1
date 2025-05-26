@@ -43,6 +43,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_qlhd)).BeginInit();
@@ -130,6 +131,7 @@
             this.dgv_qlhd.Size = new System.Drawing.Size(812, 676);
             this.dgv_qlhd.TabIndex = 8;
             this.dgv_qlhd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_qlhd_CellClick);
+            this.dgv_qlhd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_qlhd_CellFormatting);
             this.dgv_qlhd.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_qlhd_CellPainting);
             this.dgv_qlhd.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgv_qlhd_RowPrePaint);
             // 
@@ -197,7 +199,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             this.dgvtt.Location = new System.Drawing.Point(7, 33);
             this.dgvtt.Name = "dgvtt";
             this.dgvtt.ReadOnly = true;
@@ -206,6 +209,7 @@
             this.dgvtt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvtt.Size = new System.Drawing.Size(588, 432);
             this.dgvtt.TabIndex = 0;
+            this.dgvtt.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvtt_CellFormatting);
             // 
             // Column1
             // 
@@ -238,6 +242,14 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "giagoc";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // guna2HtmlLabel1
             // 
@@ -280,13 +292,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnxoa;
         private System.Windows.Forms.DataGridView dgvtt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Button btnthongke;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpcuoi;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpdau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

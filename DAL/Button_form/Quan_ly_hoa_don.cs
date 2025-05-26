@@ -19,11 +19,11 @@ namespace DAL.Button_form
             try
             {
                 KetNoi();
-                string sqlChiTiet = "SELECT m.id, m.ten, ct.soluong, ct.gia " +
+                string sqlChiTiet = "SELECT m.ID_dish, m.dish_name, ct.quantity, ct.price " +
                                    "FROM menu m " +
-                                   "INNER JOIN chitiethoadon ct ON m.id = ct.idmenu " +
-                                   "INNER JOIN hoadon hd ON hd.mahoadon = ct.mahoadon " +
-                                   "WHERE hd.mahoadon = '" + maHoaDon + "'";
+                                   "INNER JOIN detail_bill ct ON m.ID_dish = ct.ID_dish " +
+                                   "INNER JOIN bill hd ON hd.bill_ID = ct.bill_ID " +
+                                   "WHERE hd.bill_ID = '" + maHoaDon + "'";
 
                 cmd = new SqlCommand(sqlChiTiet, conn);
                 DataTable dt = new DataTable();
@@ -46,7 +46,7 @@ namespace DAL.Button_form
                 KetNoi();
                 dt = new DataTable();
                 cmd = new SqlCommand();
-                cmd.CommandText = $"delete from hoadon where mahoadon = {id}";
+                cmd.CommandText = $"delete from bill where bill_ID = {id}";
                 cmd.Connection = conn;
                 adapter = new SqlDataAdapter();
                 adapter.SelectCommand = cmd;
@@ -63,7 +63,7 @@ namespace DAL.Button_form
         public bool CheckMHD(int id)
         {
             KetNoi();
-            string query = $"SELECT COUNT(*) FROM hoadon WHERE mahoadon =  {id}"; // Giả sử cột là "id"
+            string query = $"SELECT COUNT(*) FROM bill WHERE bill_ID =  {id}"; // Giả sử cột là "id"
             cmd = new SqlCommand(query, conn);
             int i = (int)cmd.ExecuteScalar();
             NgatKn();
@@ -76,9 +76,9 @@ namespace DAL.Button_form
             try
             {
                 KetNoi();
-                string sqlThongKe = @"SELECT mahoadon, ngaytao, hinhthuc, tinhtrang, tongtien
-                                    FROM hoadon
-                                    WHERE ngaytao BETWEEN @tuNgay AND @denNgay";
+                string sqlThongKe = @"SELECT bill_ID, day_creation, form, bill_status, total_bill
+                                    FROM bill
+                                    WHERE day_creation BETWEEN @tuNgay AND @denNgay";
                 cmd = new SqlCommand(sqlThongKe, conn);
                 cmd.Parameters.AddWithValue("@tuNgay", tuNgay);
                 cmd.Parameters.AddWithValue("@denNgay", denNgay);
@@ -101,11 +101,11 @@ namespace DAL.Button_form
             try
             {
                 KetNoi();
-                string sql = "SELECT m.id, m.ten, ct.soluong, ct.gia " +
+                string sql = "SELECT m.ID_dish, m.dish_name, ct.quantity, ct.price " +
                             "FROM menu m " +
-                            "INNER JOIN chitiethoadon ct ON m.id = ct.idmenu " +
-                            "INNER JOIN hoadon hd ON hd.mahoadon = ct.mahoadon " +
-                            "WHERE hd.mahoadon = '" + maHoaDon + "'";
+                            "INNER JOIN detail_bill ct ON m.ID_dish = ct.ID_dish " +
+                            "INNER JOIN bill hd ON hd.bill_ID = ct.bill_ID " +
+                            "WHERE hd.bill_ID = '" + maHoaDon + "'";
 
                 cmd = new SqlCommand(sql, conn);
                 DataTable dt = new DataTable();

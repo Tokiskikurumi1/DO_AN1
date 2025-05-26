@@ -29,6 +29,8 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgvmenu.DefaultCellStyle.SelectionForeColor = Color.Peru;
             dgvmenu.RowTemplate.Height = 40; // Đặt chiều cao của mỗi hàng
             dgvmenu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dgvmenu.CellFormatting += dgvmenu_CellFormatting;  // Thêm sự kiện CellFormatting cho dgvmenu
+            dgvhoadon.CellFormatting += dgvhoadon_CellFormatting;  // Thêm sự kiện CellFormatting cho dgvhoadon
         }
 
         private void Trang_chu_Load(object sender, EventArgs e)
@@ -64,9 +66,9 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
 
             dgvmenu.TopLeftHeaderCell.Value = "STT";
             dgvmenu.RowPostPaint += dgvmenu_RowPostPaint;
-            dgvmenu.Columns["id"].HeaderText = "ID";
-            dgvmenu.Columns["ten"].HeaderText = "Tên món";
-            dgvmenu.Columns["gia"].HeaderText = "Giá";
+            dgvmenu.Columns["ID_dish"].HeaderText = "ID";
+            dgvmenu.Columns["dish_name"].HeaderText = "Tên món";
+            dgvmenu.Columns["price"].HeaderText = "Giá";
 
             //HÓA ĐƠN
 
@@ -75,6 +77,8 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgvhoadon.Columns[2].FillWeight = 20;
             dgvhoadon.Columns[3].FillWeight = 25;
 
+            // Ẩn cột "GiaGoc"
+            dgvhoadon.Columns[4].Visible = false;
             //ẨN CỘT
             dgvmenu.Columns[0].Visible = false;
             dgvmenu.Columns[3].Visible = false;
@@ -93,8 +97,23 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             if (e.RowIndex >= 0) // tránh ấn vào cột tiêu đề
             {
                 int i = e.RowIndex;
-                txttenmon.Text = dgvmenu[1, i].Value.ToString();
-                txtgiatien.Text = dgvmenu[2, i].Value.ToString();
+
+                // Lấy giá trị từ cột thứ 2, kiểm tra và chuyển thành số
+                string tenMon = dgvmenu[1, i].Value.ToString();
+                string giaMon = dgvmenu[2, i].Value.ToString();
+
+                int gia;
+                if (int.TryParse(giaMon, out gia))  // Chuyển đổi giá trị thành kiểu số (int)
+                {
+                    // Định dạng giá trị với dấu phân cách hàng nghìn
+                    txtgiatien.Text = $"{gia:N0} VND";
+                }
+                else
+                {
+                    txtgiatien.Text = giaMon; // Nếu không thể chuyển đổi, giữ nguyên giá trị gốc
+                }
+
+                txttenmon.Text = tenMon;
             }
         }
 
@@ -104,10 +123,10 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             int tong = 0;
             foreach (DataGridViewRow row_tong in dgvhoadon.Rows)
             {
-                if (row_tong.Cells[3].Value != null)
+                if (row_tong.Cells[4].Value != null)
                 {
                     int trave;
-                    if (int.TryParse(row_tong.Cells[3].Value.ToString(), out trave))
+                    if (int.TryParse(row_tong.Cells[4].Value.ToString(), out trave))
                     {
                         tong += trave;
                     }
@@ -129,10 +148,12 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                         return;
                     }
                     int gia;
-                    if (int.TryParse(txtgiatien.Text, out gia))
+                    string tongText = Regex.Replace(txtgiatien.Text, @"[^\d]", "");
+                    if (int.TryParse(tongText, out gia))
                     {
                         gia = gia * (int)countsl.Value;
-                        dgvhoadon.Rows.Add(dgvmenu.SelectedRows[0].Cells["id"].Value, txttenmon.Text, countsl.Value, gia);
+                        string formatted_gia = string.Format("{0:#,0} VND", gia);
+                        dgvhoadon.Rows.Add(dgvmenu.SelectedRows[0].Cells["ID_dish"].Value, txttenmon.Text, countsl.Value, formatted_gia, gia);
                         txttenmon.Clear();
                         txtgiatien.Clear();
                         countsl.Value = 1;
@@ -252,7 +273,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                             MaHoaDon = mahoadon,
                             IdMenu = Convert.ToInt32(row.Cells[0].Value),
                             SoLuong = Convert.ToInt32(row.Cells[2].Value),
-                            Gia = Convert.ToInt32(row.Cells[3].Value)
+                            Gia = Convert.ToInt32(row.Cells[4].Value)
                         });
                     }
                     bll.LuuChiTiet(mahoadon, danhSach);
@@ -297,6 +318,12 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
         {
 
         }
+
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            dgvmenu.DataSource = bll.search(txtsearch.Text);
+        }
+
 
         private void coffee_Click(object sender, EventArgs e)
         {
@@ -375,9 +402,42 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             }
         }
 
-        private void btnsearch_Click(object sender, EventArgs e)
+        private void dgvmenu_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            dgvmenu.DataSource = bll.search(txtsearch.Text);
+
+            if (dgvmenu.Columns[e.ColumnIndex].Name == "price" && e.Value != null)
+            {
+                try
+                {
+                    if (decimal.TryParse(e.Value.ToString(), out decimal price))
+                    {
+                        e.Value = string.Format("{0:N0} VND", price);
+                        e.FormattingApplied = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
+                }
+            }
+        }
+
+        private void dgvhoadon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra xem có phải cột giá (Giả sử là cột thứ 3 trong dgvhoadon)
+            if (dgvhoadon.Columns[e.ColumnIndex].Name == "gia" && e.Value != null)
+            {
+                try
+                {
+                    // Định dạng giá trị thành #.### VND
+                    e.Value = string.Format("{0:N0} VND", e.Value);
+                    e.FormattingApplied = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
+                }
+            }
         }
     }
 }

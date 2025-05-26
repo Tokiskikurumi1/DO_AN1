@@ -48,7 +48,7 @@
             this.dgvqlmenu = new System.Windows.Forms.DataGridView();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.search_menu = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -187,6 +187,7 @@
             this.txtID.FillColor = System.Drawing.Color.DarkGray;
             this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Location = new System.Drawing.Point(140, 48);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -209,6 +210,7 @@
             this.txtName.FillColor = System.Drawing.Color.DarkGray;
             this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.Location = new System.Drawing.Point(140, 129);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -231,6 +233,7 @@
             this.txtGia.FillColor = System.Drawing.Color.DarkGray;
             this.txtGia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGia.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtGia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGia.Location = new System.Drawing.Point(140, 211);
             this.txtGia.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -314,6 +317,7 @@
             this.dgvqlmenu.Size = new System.Drawing.Size(673, 683);
             this.dgvqlmenu.TabIndex = 0;
             this.dgvqlmenu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvqlmenu_CellClick);
+            this.dgvqlmenu.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvqlmenu_CellFormatting);
             this.dgvqlmenu.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvqlmenu_CellPainting);
             this.dgvqlmenu.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvqlmenu_RowPostPaint_1);
             this.dgvqlmenu.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvqlmenu_RowPrePaint);
@@ -345,37 +349,40 @@
             this.txtSearch.FillColor = System.Drawing.Color.DarkGray;
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Location = new System.Drawing.Point(856, 151);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
             this.txtSearch.PlaceholderText = "Tìm kiếm";
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(315, 49);
             this.txtSearch.TabIndex = 19;
             // 
-            // guna2Button1
+            // search_menu
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.search_icon;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button1.Location = new System.Drawing.Point(1184, 151);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(62, 49);
-            this.guna2Button1.TabIndex = 20;
+            this.search_menu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.search_menu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.search_menu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.search_menu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.search_menu.FillColor = System.Drawing.Color.Transparent;
+            this.search_menu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.search_menu.ForeColor = System.Drawing.Color.White;
+            this.search_menu.Image = global::QUAN_LY_QUAN_NUOC.Properties.Resources.search_icon;
+            this.search_menu.ImageSize = new System.Drawing.Size(50, 50);
+            this.search_menu.Location = new System.Drawing.Point(1184, 151);
+            this.search_menu.Name = "search_menu";
+            this.search_menu.Size = new System.Drawing.Size(62, 49);
+            this.search_menu.TabIndex = 20;
+            this.search_menu.Click += new System.EventHandler(this.search_menu_Click);
             // 
             // Quan_ly_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.search_menu);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.panel1);
@@ -409,7 +416,7 @@
         private System.Windows.Forms.DataGridView dgvqlmenu;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button search_menu;
         private Guna.UI2.WinForms.Guna2Button btnXoa;
         private Guna.UI2.WinForms.Guna2Button btnSua;
         private Guna.UI2.WinForms.Guna2Button btnThem;

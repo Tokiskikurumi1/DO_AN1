@@ -4,7 +4,7 @@
 
     partial class DATASET_xuatHD
     {
-        partial class hoadonDataTable
+        partial class billDataTable
         {
         }
     }

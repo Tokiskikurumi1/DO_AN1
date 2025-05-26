@@ -106,10 +106,12 @@
             // 
             // btndat_ban
             // 
+            this.btndat_ban.BorderRadius = 6;
             this.btndat_ban.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btndat_ban.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btndat_ban.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btndat_ban.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btndat_ban.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(67)))), ((int)(((byte)(65)))));
             this.btndat_ban.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btndat_ban.ForeColor = System.Drawing.Color.White;
             this.btndat_ban.Location = new System.Drawing.Point(666, 271);
@@ -121,10 +123,12 @@
             // 
             // btnhuydatban
             // 
+            this.btnhuydatban.BorderRadius = 6;
             this.btnhuydatban.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnhuydatban.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnhuydatban.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnhuydatban.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnhuydatban.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(67)))), ((int)(((byte)(65)))));
             this.btnhuydatban.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnhuydatban.ForeColor = System.Drawing.Color.White;
             this.btnhuydatban.Location = new System.Drawing.Point(666, 385);

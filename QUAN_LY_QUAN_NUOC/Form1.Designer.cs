@@ -62,7 +62,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(729, 315);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(202, 36);
-            this.guna2HtmlLabel1.TabIndex = 15;
+            this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = "Hiển thị mật khẩu";
             // 
             // guna2Button2
@@ -77,7 +77,7 @@
             this.guna2Button2.Location = new System.Drawing.Point(817, 369);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(139, 45);
-            this.guna2Button2.TabIndex = 14;
+            this.guna2Button2.TabIndex = 5;
             this.guna2Button2.Text = "Thoát";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
@@ -93,7 +93,7 @@
             this.btnDN.Location = new System.Drawing.Point(666, 369);
             this.btnDN.Name = "btnDN";
             this.btnDN.Size = new System.Drawing.Size(139, 45);
-            this.btnDN.TabIndex = 13;
+            this.btnDN.TabIndex = 4;
             this.btnDN.Text = "Đăng nhập";
             this.btnDN.Click += new System.EventHandler(this.btnDN_Click_1);
             // 
@@ -106,7 +106,7 @@
             this.sw_check.Location = new System.Drawing.Point(666, 315);
             this.sw_check.Name = "sw_check";
             this.sw_check.Size = new System.Drawing.Size(41, 25);
-            this.sw_check.TabIndex = 12;
+            this.sw_check.TabIndex = 2;
             this.sw_check.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.sw_check.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.sw_check.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
@@ -119,7 +119,7 @@
             this.label1.Location = new System.Drawing.Point(610, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(366, 61);
-            this.label1.TabIndex = 11;
+            this.label1.TabIndex = 8;
             this.label1.Text = "QUẢN LÝ QUÁN NƯỚC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -140,7 +140,7 @@
             this.txtmk.PlaceholderText = "Mật khẩu";
             this.txtmk.SelectedText = "";
             this.txtmk.Size = new System.Drawing.Size(290, 48);
-            this.txtmk.TabIndex = 10;
+            this.txtmk.TabIndex = 1;
             this.txtmk.UseSystemPasswordChar = true;
             // 
             // txttk
@@ -160,7 +160,7 @@
             this.txttk.PlaceholderText = "Tên đăng nhập";
             this.txttk.SelectedText = "";
             this.txttk.Size = new System.Drawing.Size(290, 48);
-            this.txttk.TabIndex = 9;
+            this.txttk.TabIndex = 0;
             // 
             // guna2PictureBox1
             // 
@@ -181,7 +181,7 @@
             this.guna2ControlBox1.Location = new System.Drawing.Point(920, 12);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 16;
+            this.guna2ControlBox1.TabIndex = 7;
             // 
             // guna2ControlBox2
             // 
@@ -192,7 +192,7 @@
             this.guna2ControlBox2.Location = new System.Drawing.Point(860, 12);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox2.TabIndex = 17;
+            this.guna2ControlBox2.TabIndex = 6;
             // 
             // Form1
             // 

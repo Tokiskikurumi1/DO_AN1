@@ -33,14 +33,15 @@
             this.btn_add_ban = new Guna.UI2.WinForms.Guna2Button();
             this.btn_xoa_ban = new Guna.UI2.WinForms.Guna2Button();
             this.dgvhoadon_ban = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbtong = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_thanhtoanban = new Guna.UI2.WinForms.Guna2Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FLP_ban.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvhoadon_ban)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -111,7 +112,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             this.dgvhoadon_ban.GridColor = System.Drawing.Color.DarkGray;
             this.dgvhoadon_ban.Location = new System.Drawing.Point(9, 31);
             this.dgvhoadon_ban.Name = "dgvhoadon_ban";
@@ -124,38 +126,6 @@
             this.dgvhoadon_ban.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvhoadon_ban_CellClick);
             this.dgvhoadon_ban.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvhoadon_ban_CellPainting);
             this.dgvhoadon_ban.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvhoadon_ban_RowPrePaint);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Số lượng";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Giá";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
             // 
             // groupBox1
             // 
@@ -211,6 +181,46 @@
             this.btn_thanhtoanban.Text = "Thanh toán";
             this.btn_thanhtoanban.Click += new System.EventHandler(this.btn_thanhtoanban_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Số lượng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Giá";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "giagoc";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
+            // 
             // Quan_Ly_Ban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,6 +232,7 @@
             this.Controls.Add(this.FLP_ban);
             this.Name = "Quan_Ly_Ban";
             this.Size = new System.Drawing.Size(1563, 878);
+            this.Load += new System.EventHandler(this.Quan_Ly_Ban_Load);
             this.FLP_ban.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvhoadon_ban)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -234,14 +245,15 @@
         private Guna.UI2.WinForms.Guna2Button btn_add_ban;
         private Guna.UI2.WinForms.Guna2Button btn_xoa_ban;
         private System.Windows.Forms.DataGridView dgvhoadon_ban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbtong;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btn_thanhtoanban;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

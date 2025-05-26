@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Button_form;
@@ -28,9 +29,10 @@ namespace BLL
             return role_ID != -1; // Trả về true nếu đăng nhập thành công
         }
         //=========================================================
+        //================LOAD DATAGIRDVIEW TRANG CHỦ==============
         //=========================================================
 
-        // LOAD DATAGIRDVIEW TRANG 
+        // LOAD TRANG CHỦ
         public DataTable trang_chu(string name_table)
         {
             return tc.load_menu(name_table);
@@ -41,31 +43,60 @@ namespace BLL
         {
             return tc.searchs_tt(name);
         }
-        // QUẢN LÝ BÀN
 
-        public int GetTableCount()
+        // ĐẶT BÀN
+        public int DatBan(int idban, int tongtien)
+        {
+            return qlb.DatBan(idban, tongtien);
+        }
+
+        //LƯU CHI TIẾT HÓA ĐƠN THANH TOÁN 
+        public void LuuChiTiet(int mahoadon, List<DTO.ChiTietHoaDon> chitiet)
+        {
+            qlb.LuuChiTietHoaDon(mahoadon, chitiet);
+        }
+
+        //THANH TOÁN HÓA ĐƠN
+        public int ThanhToanHoaDon(int tongtien)
+        {
+            return tc.ThanhToanHoaDon(tongtien);
+        }
+
+        //=========================================================
+        //===================QUẢN LÝ BÀN===========================
+        //=========================================================
+
+
+        // ĐẾM BÀN
+        public int DemBan()
         {
             return qlb.Dem_ban();
         }
 
+        //LẤY THÔNG TIN BÀN
         public List<(int idban, string tenban, string trangthai)> GetAllTables()
         {
             return qlb.GetAllTables();
         }
+
+        // THANH TOÁN BÀN
         public int thanhtoanban(int idban)
         {
             return qlb.ThanhToanBan(idban);
         }
+
+        // THÊM BÀN
         public void AddTable()
         {
-            int currentCount = GetTableCount() + 1;
+            int currentCount = DemBan() + 1;
             string tableName = $"Bàn {currentCount}";
             qlb.AddTable(tableName);
         }
 
+        //XÓA BÀN CUỐI CÙNG
         public void RemoveTable()
         {
-            if (GetTableCount() > 0)
+            if (DemBan() > 0)
             {
                 qlb.RemoveLastTable();
             }
@@ -75,35 +106,30 @@ namespace BLL
             }
         }
 
-        public int DatBan(int idban, int tongtien)
-        {
-            return qlb.DatBan(idban, tongtien);
-        }
-
-        public void LuuChiTiet(int mahoadon, List<DTO.ChiTietHoaDon> chitiet)
-        {
-            qlb.LuuChiTietHoaDon(mahoadon, chitiet);
-        }
-
-        public int ThanhToanHoaDon(int tongtien)
-        {
-            return tc.ThanhToanHoaDon(tongtien);
-        }
-
+        //HIỂN THỊ HÓA ĐƠN BÀN
         public DataTable hienthiban(int idban)
         {
             return qlb.hienthiban(idban);
         }
 
+
+        // THANH TOÁN HÓA ĐƠN CHO BÀN
         public int thanhtoan(int idban)
         {
             return qlb.ThanhToanBan(idban);
         }
 
+        //=========================================================
+        //===================QUẢN LÝ MENU===========================
+        //=========================================================
+
+        //LOAD DGV THEO DANH MỤC 
         public DataTable loadDM(char maDM)
         {
             return qlymenu.dboloadDM(maDM);
         }
+
+        // LOAD DGV MENU
         public DataTable quanlymenuload()
         {
             return qlymenu.load_menu();
@@ -147,6 +173,7 @@ namespace BLL
         {
             errorMessage = string.Empty;
 
+
             if (string.IsNullOrWhiteSpace(name))
             {
                 errorMessage = "Tên không được để trống!";
@@ -174,7 +201,7 @@ namespace BLL
             return qlymenu.SuaMenu(id, name, gia, maDanhMuc);
         }
         //XÓA MÓN TRONG MENU
-        public bool XoaMon(string name_table, int id, out string errorMessage)
+        public bool XoaMon(int id, out string errorMessage)
         {
             errorMessage = string.Empty;
 
@@ -184,7 +211,7 @@ namespace BLL
                 return false;
             }
 
-            return qlymenu.XoaMenu(name_table, id);
+            return qlymenu.XoaMenu(id);
         }
 
         //TÌM MÓN ĂN
@@ -192,11 +219,18 @@ namespace BLL
         {
             return tc.dboSearch(name);
         }
+
+        //LOAD CCB DANH MỤC MENU
         public DataTable loadCCB()
         {
             return qlymenu.GetDanhMuc();
         }
 
+        //=========================================================
+        //===================QUẢN LÝ HÓA ĐƠN=======================
+        //=========================================================
+
+        // LẤY CHI TIẾT HÓA ĐƠN
         public DataTable GetChiTietHoaDon(int maHoaDon)
         {
             try
@@ -210,23 +244,21 @@ namespace BLL
         }
         //
 
-        public DataTable chitietHD(int maHoaDon)
-        {
-            try
-            {
-                DataTable dt = qlyhoadon.GetChiTietHoaDon(maHoaDon);
-                return dt; // Có thể thêm logic xử lý dữ liệu ở đây nếu cần
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi khi xử lý chi tiết hóa đơn: " + ex.Message);
-            }
-        }
-        public DataTable loadtong(string name_table)
-        {
-            return qlymenu.dboload(name_table);
-        }
+        //public DataTable chitietHD(int maHoaDon)
+        //{
+        //    try
+        //    {
+        //        DataTable dt = qlyhoadon.GetChiTietHoaDon(maHoaDon);
+        //        return dt; // Có thể thêm logic xử lý dữ liệu ở đây nếu cần
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Lỗi khi xử lý chi tiết hóa đơn: " + ex.Message);
+        //    }
+        //}
+        
 
+        // LẤY DỮ LIỆU IN HÓA ĐƠN
         public DataTable GetDuLieuInHoaDon(int maHoaDon)
         {
             try
@@ -239,14 +271,17 @@ namespace BLL
                 throw new Exception("Lỗi khi xử lý dữ liệu để in hóa đơn: " + ex.Message);
             }
         }
-        //=======================================================================================================
-        //=======================================================================================================
-        // QUẢN LÝ NHÂN VIÊN
+        //=============================================================
+        //======================QUẢN LÝ NHÂN VIÊN======================
+        //=============================================================
+
+        //LOAD DGV QUẢN LÝ NHÂN VIÊN
         public DataTable dgv_nhanvien()
         {
             return qly_nv.load_NV();
         }
 
+        //LOAD CCB VAI TRÒ
         public DataTable dbocbb_Roles()
         {
             return qly_nv.lay_Roles();
@@ -284,6 +319,12 @@ namespace BLL
                 return false;
             }
 
+            if (so_dt.Contains(" ")) 
+            {
+                errorMessage = "Số điện thoại không được chứa ký tự khoảng cách!";
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(ca_lam) || ca_lam == "Chọn ca")
             {
                 errorMessage = "Vui lòng chọn ca làm";
@@ -298,6 +339,12 @@ namespace BLL
             if(tai_khoan.Contains(" ") || mat_khau.Contains(" ") || tai_khoan.Length > 30 || mat_khau.Length > 30)
             {
                 errorMessage = "Tài khoản và mật khẩu không được nhiều hơn 30 ký tự và không được có khoảng cách!";
+                return false;
+            }
+
+            if (!check_textbox(tai_khoan) || !check_textbox(mat_khau))
+            {
+                errorMessage = "Tài khoản và mật khẩu không được chứa khoảng cách!";
                 return false;
             }
 
@@ -341,6 +388,12 @@ namespace BLL
                 return false;
             }
 
+            if(so_dt.Contains(" "))
+            {
+                errorMessage = "Số điện thoại không được chứa khoảng cách!";
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(ca_lam) || ca_lam == "Chọn ca")
             {
                 errorMessage = "Vui lòng chọn ca làm";
@@ -355,6 +408,12 @@ namespace BLL
             if (tai_khoan.Contains(" ") || mat_khau.Contains(" ") || tai_khoan.Length > 30 || mat_khau.Length > 30)
             {
                 errorMessage = "Tài khoản và mật khẩu không được nhiều hơn 30 ký tự và không được có khoảng cách!";
+                return false;
+            }
+
+            if(!check_textbox(tai_khoan) || !check_textbox(mat_khau))
+            {
+                errorMessage = "Tài khoản và mật khẩu không được chứa ký tự có dấu!";
                 return false;
             }
 
@@ -381,15 +440,25 @@ namespace BLL
             return qly_nv.Xoa_NV(id);
         }
 
+        // TÌM KIẾM NHÂN VIÊN
         public DataTable TimKiem_NV(string name)
         {
             return qly_nv.Tim_kiem(name);
         }
 
-        //=======================================================================================================
-        //=======================================================================================================
 
-        //THỐNG KÊ HÓA ĐƠN
+        //KIỂM TRA DẤU TÀI KHOẢN VÀ MẬT KHẨU 
+        public bool check_textbox(string input)
+        {
+            // Không dấu, không khoảng trắng
+            return Regex.IsMatch(input, @"^[a-zA-Z0-9]+$");
+        }
+
+
+        //=================================================================
+        //========================THỐNG KÊ HÓA ĐƠN=========================
+        //=================================================================
+
         public DataTable GetThongKeHoaDon(DateTime tuNgay, DateTime denNgay)
         {
             try
@@ -408,9 +477,9 @@ namespace BLL
                         }
 
                         // Xử lý cột "tinhtrang"
-                        if (row["tinhtrang"] != DBNull.Value)
+                        if (row["bill_status"] != DBNull.Value)
                         {
-                            row["tinhtrang"] = Convert.ToInt32(row["tinhtrang"]) == 0 ? "Chưa thanh toán" : "Đã thanh toán";
+                            row["bill_status"] = Convert.ToInt32(row["bill_status"]) == 0 ? "Chưa thanh toán" : "Đã thanh toán";
                         }
                     }
                 }
@@ -488,6 +557,11 @@ namespace BLL
         {
             DataTable dt = th_ke.GetInvoicesByDateRange(fromDate, toDate);
             return dt;
+        }
+
+        public DataTable loadtong(string name_table)
+        {
+            return qlymenu.dboload(name_table);
         }
     }
 }

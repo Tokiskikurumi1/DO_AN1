@@ -16,7 +16,7 @@ namespace DAL.Button_form
         }
         public DataTable Load_Thong_ke()
         {
-            string sql = "select mahoadon, ngaytao, hinhthuc, tongtien from hoadon";
+            string sql = "select bill_ID, day_creation, form, total_bill from bill";
             cmd = new SqlCommand(sql, conn);
             dt = new DataTable();
             adapter = new SqlDataAdapter(cmd);
@@ -27,8 +27,8 @@ namespace DAL.Button_form
         public DataTable Thongketheongay(DateTime fromDate, DateTime toDate)
         {
             DataTable dt = new DataTable();
-            string sql = @"SELECT mahoadon, ngaytao, hinhthuc, tongtien FROM hoadon 
-                          WHERE ngaytao BETWEEN @FromDate AND @ToDate";
+            string sql = @"SELECT bill_ID, day_creation, form, total_bill from bill
+                          WHERE day_creation BETWEEN @FromDate AND @ToDate";
 
 
             try
@@ -68,7 +68,7 @@ namespace DAL.Button_form
         public DataTable GetAllInvoices()
         {
             DataTable dt = new DataTable();
-            string sql = "SELECT mahoadon, ngaytao, hinhthuc, tongtien FROM hoadon";
+            string sql = "SELECT bill_ID, day_creation, form, total_bill from bill";
 
             try
             {
@@ -88,8 +88,8 @@ namespace DAL.Button_form
         public DataTable GetInvoicesByDateRange(DateTime fromDate, DateTime toDate)
         {
             DataTable dt = new DataTable();
-            string sql = @"SELECT mahoadon, ngaytao, hinhthuc, tongtien FROM hoadon 
-                          WHERE ngaytao BETWEEN @FromDate AND @ToDate";
+            string sql = @"SELECT bill_ID, day_creation, form, total_bill from bill 
+                          WHERE day_creation BETWEEN @FromDate AND @ToDate";
 
             try
             {

@@ -28,6 +28,9 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgvtk.DataSource = dt;
             tongdoanthu();
             tonghoadon();
+            dgvtk.CellPainting += dgvtk_CellPainting;
+            dgvtk.RowTemplate.Height = 40;
+            dgvtk.CellFormatting += dgvtk_CellFormatting;
         }
         void tongdoanthu()
         {
@@ -97,7 +100,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             loaddgv();
         }
 
-        private void btntk_Click(object sender, EventArgs e)
+        private void btn_TK_Click(object sender, EventArgs e)
         {
             DateTime tungay = dttungay.Value.Date;
             DateTime denngay = dtdenngay.Value.Date.AddDays(1).AddSeconds(-1); // Kết thúc trong ngày
@@ -116,7 +119,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             tonghoadon();
         }
 
-        private void btnxuatbc_Click(object sender, EventArgs e)
+        private void btn_xuatBC_Click(object sender, EventArgs e)
         {
             try
             {
@@ -145,5 +148,55 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo", MessageBoxButtons.OK);
             }
         }
+
+        
+
+        private void dgvtk_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            //TÔ MÀU CHO DGV MENU
+            if (e.RowIndex == -1) // Header
+            {
+                if (e.ColumnIndex == 0) // Cột STT
+                {
+                    e.Graphics.FillRectangle(Brushes.LightBlue, e.CellBounds);
+                }
+                else
+                {
+                    e.Graphics.FillRectangle(Brushes.LightGray, e.CellBounds);
+                }
+
+                e.PaintContent(e.ClipBounds);
+                e.Handled = true;
+            }
+        }
+
+        private void dgvtk_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (e.RowIndex % 2 == 0)
+            {
+                dgvtk.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Peru; // Màu nâu
+            }
+        }
+
+        private void dgvtk_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvtk.Columns[e.ColumnIndex].Name == "total_bill" && e.Value != null)
+            {
+                try
+                {
+                    if (decimal.TryParse(e.Value.ToString(), out decimal price))
+                    {
+                        e.Value = string.Format("{0:N0} VND", price);
+                        e.FormattingApplied = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
+                }
+            }
+        }
+
+        
     }
 }

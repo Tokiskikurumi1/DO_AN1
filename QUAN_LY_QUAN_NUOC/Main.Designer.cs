@@ -41,7 +41,6 @@
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.Panel_Thongke = new System.Windows.Forms.Panel();
             this.Thong_ke_doanh_thu = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnthongke = new Guna.UI2.WinForms.Guna2Button();
             this.panel_quanly = new System.Windows.Forms.Panel();
@@ -170,9 +169,9 @@
             this.guna2Button9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
-            this.guna2Button9.Location = new System.Drawing.Point(0, 680);
+            this.guna2Button9.Location = new System.Drawing.Point(0, 629);
             this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(262, 57);
+            this.guna2Button9.Size = new System.Drawing.Size(283, 57);
             this.guna2Button9.TabIndex = 16;
             this.guna2Button9.Text = "Thoát";
             this.guna2Button9.Click += new System.EventHandler(this.guna2Button9_Click);
@@ -180,11 +179,10 @@
             // Panel_Thongke
             // 
             this.Panel_Thongke.Controls.Add(this.Thong_ke_doanh_thu);
-            this.Panel_Thongke.Controls.Add(this.guna2Button8);
             this.Panel_Thongke.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Thongke.Location = new System.Drawing.Point(0, 570);
             this.Panel_Thongke.Name = "Panel_Thongke";
-            this.Panel_Thongke.Size = new System.Drawing.Size(262, 110);
+            this.Panel_Thongke.Size = new System.Drawing.Size(283, 59);
             this.Panel_Thongke.TabIndex = 17;
             // 
             // Thong_ke_doanh_thu
@@ -198,33 +196,14 @@
             this.Thong_ke_doanh_thu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.Thong_ke_doanh_thu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Thong_ke_doanh_thu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
-            this.Thong_ke_doanh_thu.Location = new System.Drawing.Point(0, 53);
+            this.Thong_ke_doanh_thu.Location = new System.Drawing.Point(0, 0);
             this.Thong_ke_doanh_thu.Name = "Thong_ke_doanh_thu";
             this.Thong_ke_doanh_thu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Thong_ke_doanh_thu.Size = new System.Drawing.Size(262, 57);
+            this.Thong_ke_doanh_thu.Size = new System.Drawing.Size(283, 59);
             this.Thong_ke_doanh_thu.TabIndex = 14;
             this.Thong_ke_doanh_thu.Text = "• Thống kê doanh thu";
             this.Thong_ke_doanh_thu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Thong_ke_doanh_thu.Click += new System.EventHandler(this.Thong_ke_doanh_thu_Click);
-            // 
-            // guna2Button8
-            // 
-            this.guna2Button8.BorderThickness = 1;
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
-            this.guna2Button8.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.guna2Button8.Size = new System.Drawing.Size(262, 53);
-            this.guna2Button8.TabIndex = 15;
-            this.guna2Button8.Text = "• Sản phẩm bán chạy";
-            this.guna2Button8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // panel5
             // 
@@ -232,7 +211,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 511);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(262, 59);
+            this.panel5.Size = new System.Drawing.Size(283, 59);
             this.panel5.TabIndex = 11;
             // 
             // btnthongke
@@ -249,7 +228,7 @@
             this.btnthongke.Location = new System.Drawing.Point(0, 0);
             this.btnthongke.Name = "btnthongke";
             this.btnthongke.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnthongke.Size = new System.Drawing.Size(262, 59);
+            this.btnthongke.Size = new System.Drawing.Size(283, 59);
             this.btnthongke.TabIndex = 13;
             this.btnthongke.Text = "➡ Thống kê";
             this.btnthongke.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -264,7 +243,7 @@
             this.panel_quanly.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_quanly.Location = new System.Drawing.Point(0, 293);
             this.panel_quanly.Name = "panel_quanly";
-            this.panel_quanly.Size = new System.Drawing.Size(262, 218);
+            this.panel_quanly.Size = new System.Drawing.Size(283, 218);
             this.panel_quanly.TabIndex = 10;
             // 
             // btn_Quan_ly_nv
@@ -281,7 +260,7 @@
             this.btn_Quan_ly_nv.Location = new System.Drawing.Point(0, 165);
             this.btn_Quan_ly_nv.Name = "btn_Quan_ly_nv";
             this.btn_Quan_ly_nv.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Quan_ly_nv.Size = new System.Drawing.Size(262, 53);
+            this.btn_Quan_ly_nv.Size = new System.Drawing.Size(283, 53);
             this.btn_Quan_ly_nv.TabIndex = 3;
             this.btn_Quan_ly_nv.Text = "• Quản lý nhân viên";
             this.btn_Quan_ly_nv.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -301,7 +280,7 @@
             this.btn_Quan_ly_ban.Location = new System.Drawing.Point(0, 108);
             this.btn_Quan_ly_ban.Name = "btn_Quan_ly_ban";
             this.btn_Quan_ly_ban.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Quan_ly_ban.Size = new System.Drawing.Size(262, 57);
+            this.btn_Quan_ly_ban.Size = new System.Drawing.Size(283, 57);
             this.btn_Quan_ly_ban.TabIndex = 10;
             this.btn_Quan_ly_ban.Text = "• Quản lý bàn";
             this.btn_Quan_ly_ban.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -316,12 +295,12 @@
             this.btn_quan_ly_menu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_quan_ly_menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_quan_ly_menu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_quan_ly_menu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quan_ly_menu.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btn_quan_ly_menu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(74)))), ((int)(((byte)(0)))));
             this.btn_quan_ly_menu.Location = new System.Drawing.Point(0, 53);
             this.btn_quan_ly_menu.Name = "btn_quan_ly_menu";
             this.btn_quan_ly_menu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_quan_ly_menu.Size = new System.Drawing.Size(262, 55);
+            this.btn_quan_ly_menu.Size = new System.Drawing.Size(283, 55);
             this.btn_quan_ly_menu.TabIndex = 11;
             this.btn_quan_ly_menu.Text = "• Quản lý menu";
             this.btn_quan_ly_menu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -341,7 +320,7 @@
             this.btn_quan_ly_hoa_don.Location = new System.Drawing.Point(0, 0);
             this.btn_quan_ly_hoa_don.Name = "btn_quan_ly_hoa_don";
             this.btn_quan_ly_hoa_don.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_quan_ly_hoa_don.Size = new System.Drawing.Size(262, 53);
+            this.btn_quan_ly_hoa_don.Size = new System.Drawing.Size(283, 53);
             this.btn_quan_ly_hoa_don.TabIndex = 12;
             this.btn_quan_ly_hoa_don.Text = "• Quản lý hóa đơn";
             this.btn_quan_ly_hoa_don.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -354,7 +333,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 181);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(262, 112);
+            this.panel4.Size = new System.Drawing.Size(283, 112);
             this.panel4.TabIndex = 9;
             // 
             // btnqly
@@ -371,7 +350,7 @@
             this.btnqly.Location = new System.Drawing.Point(0, 55);
             this.btnqly.Name = "btnqly";
             this.btnqly.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnqly.Size = new System.Drawing.Size(262, 57);
+            this.btnqly.Size = new System.Drawing.Size(283, 57);
             this.btnqly.TabIndex = 9;
             this.btnqly.Text = "➡ Quản lý";
             this.btnqly.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -391,7 +370,7 @@
             this.btnTrang_chu.Location = new System.Drawing.Point(0, 0);
             this.btnTrang_chu.Name = "btnTrang_chu";
             this.btnTrang_chu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTrang_chu.Size = new System.Drawing.Size(262, 55);
+            this.btnTrang_chu.Size = new System.Drawing.Size(283, 55);
             this.btnTrang_chu.TabIndex = 2;
             this.btnTrang_chu.Text = "➡ Trang chủ";
             this.btnTrang_chu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -404,7 +383,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(262, 181);
+            this.panel3.Size = new System.Drawing.Size(283, 181);
             this.panel3.TabIndex = 8;
             // 
             // guna2PictureBox1
@@ -462,7 +441,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_quan_ly_menu;
         private Guna.UI2.WinForms.Guna2Button btn_Quan_ly_ban;
         private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
         private Guna.UI2.WinForms.Guna2Button Thong_ke_doanh_thu;
         private System.Windows.Forms.Panel Panel_Thongke;
         private System.Windows.Forms.Panel panel_quanly;

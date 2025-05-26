@@ -37,11 +37,11 @@ namespace DAL.Button_form
                 KetNoi();
                 dt = dboload("UserDN");
                 DataRow dr = dt.NewRow();
-                dr["id"] = id;
-                dr["ho_ten"] = ten;
-                dr["ngay_sinh"] = ngaysinh;
-                dr["so_dien_thoai"] = so_dt;
-                dr["ca_lam"] = ca_lam;
+                dr["ID_user"] = id;
+                dr["full_name"] = ten;
+                dr["date_of_birth"] = ngaysinh;
+                dr["phone_number"] = so_dt;
+                dr["shifts"] = ca_lam;
                 dr["nameuser"] = tai_khoan;
                 dr["pass"] = mat_khau;
                 dr["role_ID"] = chuc_vu;
@@ -99,7 +99,7 @@ namespace DAL.Button_form
                 KetNoi();
                 dt = new DataTable();
                 cmd = new SqlCommand();
-                cmd.CommandText = $"delete from UserDN where id = {id}";
+                cmd.CommandText = $"delete from UserDN where ID_user = {id}";
                 cmd.Connection = conn;
                 adapter = new SqlDataAdapter();
                 adapter.SelectCommand = cmd;
@@ -116,7 +116,7 @@ namespace DAL.Button_form
         public DataTable Tim_kiem(string name)
         {
             dt = new DataTable();
-            string query = $"SELECT * FROM UserDN WHERE ho_ten LIKE N'%{name}%'";
+            string query = $"SELECT * FROM UserDN WHERE full_name LIKE N'%{name}%'";
             cmd = new SqlCommand(query, conn);
             adapter = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -124,10 +124,10 @@ namespace DAL.Button_form
             return dt;
         }
 
-        public bool kiemtra_ID(int id)
+        public virtual bool kiemtra_ID(int id)
         {
             KetNoi();
-            string query = $"SELECT COUNT(*) FROM UserDN WHERE id =  {id}"; // Giả sử cột là "id"
+            string query = $"SELECT COUNT(*) FROM UserDN WHERE ID_user =  {id}"; // Giả sử cột là "id"
             cmd = new SqlCommand(query, conn);
             int i = (int)cmd.ExecuteScalar();
             NgatKn();

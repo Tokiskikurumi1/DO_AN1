@@ -36,6 +36,10 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgvtt.DefaultCellStyle.SelectionForeColor = Color.Peru;
             dgvtt.RowTemplate.Height = 40; // Đặt chiều cao của mỗi hàng
             dgvtt.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            dgv_qlhd.CellFormatting += dgv_qlhd_CellFormatting;
+            dgvtt.CellFormatting += dgvtt_CellFormatting;
+
         }
 
         void kiem_tra()
@@ -69,12 +73,14 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgvtt.Columns[2].FillWeight = 25;
             dgvtt.Columns[3].FillWeight = 25;
 
+            dgvtt.Columns[4].Visible = false;
+
         }
         void load()
         {
             try
             {
-                dt = qlyhoadon.trang_chu("hoadon");
+                dt = qlyhoadon.trang_chu("bill");
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -122,9 +128,14 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 // Hiển thị dữ liệu lên DataGridView
                 foreach (DataRow row in dt.Rows)
                 {
-                    dgvtt.Rows.Add(row["id"].ToString(), row["ten"], row["soluong"].ToString(), row["gia"].ToString());
+                    string priceFormatted = "";
+                    if (decimal.TryParse(row["price"].ToString(), out decimal price))
+                    {
+                        priceFormatted = string.Format("{0:N0} VND", price);
+                    }
+                    dgvtt.Rows.Add(row["ID_dish"].ToString(), row["dish_name"], row["quantity"].ToString(),priceFormatted, row["price"].ToString());
+                    //dgvtt.Rows.Add(row["ID_dish"].ToString(), row["dish_name"], row["quantity"].ToString(), row["price"].ToString());
                 }
-
                 // Gọi hàm tính tổng hóa đơn (giả sử đã có sẵn)
                 tonghoadon();
             }
@@ -140,10 +151,10 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             int tong = 0;
             foreach (DataGridViewRow row_tong in dgvtt.Rows)
             {
-                if (row_tong.Cells[3].Value != null)
+                if (row_tong.Cells[4].Value != null)
                 {
                     int trave;
-                    if (int.TryParse(row_tong.Cells[3].Value.ToString(), out trave))
+                    if (int.TryParse(row_tong.Cells[4].Value.ToString(), out trave))
                     {
                         tong += trave;
                     }
@@ -212,9 +223,13 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                         return;
                     }
 
+                    // Kiểm tra dữ liệu chi tiết món
+                    dt.TableName = "detail_bill";
                     // Thiết lập dữ liệu cho Crystal Reports
                     hd = new hoadonrp();
-                    hd.SetDataSource(dt);
+                    DataSet ds = new DataSet();
+                    ds.Tables.Add(dt.Copy());
+                    hd.SetDataSource(ds);
 
                     // Hiển thị report trong form hoadoncr
                     hdc = new hoadoncr();
@@ -260,12 +275,14 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                             if (qlyhoadon.XoaHD(mahoadon, out Mess))
                             {
                                 load();
+                                loaddgv();
                                 MessageBox.Show("Xóa hóa đơn thành công!");
                             }
                             else
                             {
                                 MessageBox.Show("Xóa thất bại");
                             }
+                            reset();
                         }
 
                     }
@@ -328,6 +345,49 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             if (e.RowIndex % 2 == 0)
             {
                 dgv_qlhd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Peru; // Màu nâu
+            }
+        }
+
+        void reset()
+        {
+            dgvtt.Rows.Clear();
+        }
+
+        private void dgv_qlhd_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgv_qlhd.Columns[e.ColumnIndex].Name == "total_bill" && e.Value != null)
+            {
+                try
+                {
+                    if (decimal.TryParse(e.Value.ToString(), out decimal price))
+                    {
+                        e.Value = string.Format("{0:N0} VND", price);
+                        e.FormattingApplied = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
+                }
+            }
+        }
+
+        private void dgvtt_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvtt.Columns[e.ColumnIndex].Name == "price" && e.Value != null)
+            {
+                try
+                {
+                    if (decimal.TryParse(e.Value.ToString(), out decimal price))
+                    {
+                        e.Value = string.Format("{0:N0} VND", price);
+                        e.FormattingApplied = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
+                }
             }
         }
     }
