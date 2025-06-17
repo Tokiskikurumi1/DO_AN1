@@ -24,7 +24,7 @@ namespace DAL
         //
         protected void KetNoi()
         {
-            conn = new SqlConnection(chuoikn); // Thay bằng chuỗi kết nối của bạn
+            conn = new SqlConnection(chuoikn);
             conn.Open();
         }
 

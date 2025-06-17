@@ -22,6 +22,7 @@ namespace DAL.Button_form
             }
         }
 
+        //LẤY DANH SÁCH BÀN 
         public List<(int idban, string tenban, string trangthai)> GetAllTables()
         {
             List<(int table_ID, string table_name, string table_status)> tables = new List<(int, string, string)>();
@@ -38,7 +39,7 @@ namespace DAL.Button_form
             }
             return tables;
         }
-
+        // THÊM BÀN 
         public void AddTable(string tableName)
         {
             using (SqlConnection conn = new SqlConnection(chuoikn))
@@ -50,7 +51,7 @@ namespace DAL.Button_form
                 cmd.ExecuteNonQuery();
             }
         }
-
+        //XÓA BÀN
         public void RemoveLastTable()
         {
             using (SqlConnection conn = new SqlConnection(chuoikn))
@@ -81,7 +82,7 @@ namespace DAL.Button_form
 
         }
 
-        //
+        //ĐẶT BÀN 
 
         public int DatBan(int idban, int tongtien)
         {
@@ -240,12 +241,17 @@ namespace DAL.Button_form
                     SqlCommandBuilder builderHoaDon = new SqlCommandBuilder(adapterHoaDon);
                     adapterHoaDon.Fill(dtHoaDon);
 
+                    int idHoaDon = -1;
+
                     // Nếu có hóa đơn chưa thanh toán, cập nhật trạng thái
                     if (dtHoaDon.Rows.Count > 0)
                     {
                         DataRow rowHoaDon = dtHoaDon.Rows[0];
                         rowHoaDon["bill_status"] = "1"; // Đánh dấu hóa đơn là đã thanh toán
                         adapterHoaDon.Update(dtHoaDon); // Cập nhật vào cơ sở dữ liệu
+
+                        // Lấy mã hóa đơn
+                        idHoaDon = Convert.ToInt32(rowHoaDon["bill_ID"]);
                     }
 
                     //cập nhật trạng thái bàn
@@ -255,9 +261,22 @@ namespace DAL.Button_form
                         rowBan["table_status"] = "Trống"; // Đánh dấu bàn là trống
                         adapterBan.Update(dtBan); // Cập nhật vào cơ sở dữ liệu
                     }
+
+                    // TRẢ VỀ MÃ HÓA ĐƠN ĐỂ HIỂN THỊ FORM QR
+                    if (idHoaDon != -1)
+                    {
+                        return idHoaDon; // Trả về mã hóa đơn
+                    }
+
+                    else
+                    {
+                        return -2; // Không có hóa đơn nào chưa thanh toán
+                    }
+                        
                 }
-                // Thông báo thành công
-                return idban;
+                //// Thông báo thành công
+
+                //return idban;
             }
             catch (Exception ex)
             {

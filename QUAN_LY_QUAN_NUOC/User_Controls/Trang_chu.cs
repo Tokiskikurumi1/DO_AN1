@@ -278,6 +278,10 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                     }
                     bll.LuuChiTiet(mahoadon, danhSach);
                     MessageBox.Show("Thanh toán thành công");
+
+                    // HIỂN THỊ FORM QR
+                    Form_QR qR = new Form_QR(mahoadon,lbtong.Text);
+                    qR.Show();
                     dgvhoadon.Rows.Clear();
                     tonghoadon();
                     //ngatkn();

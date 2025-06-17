@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnthongke = new Guna.UI2.WinForms.Guna2Button();
             this.dtpcuoi = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -53,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.btnthongke);
             this.panel1.Controls.Add(this.dtpcuoi);
             this.panel1.Controls.Add(this.dtpdau);
@@ -99,7 +102,7 @@
             this.dtpcuoi.Name = "dtpcuoi";
             this.dtpcuoi.Size = new System.Drawing.Size(200, 45);
             this.dtpcuoi.TabIndex = 15;
-            this.dtpcuoi.Value = new System.DateTime(2025, 3, 19, 21, 44, 22, 267);
+            this.dtpcuoi.Value = new System.DateTime(2025, 6, 13, 0, 0, 0, 0);
             // 
             // dtpdau
             // 
@@ -115,13 +118,29 @@
             this.dtpdau.Name = "dtpdau";
             this.dtpdau.Size = new System.Drawing.Size(200, 45);
             this.dtpdau.TabIndex = 14;
-            this.dtpdau.Value = new System.DateTime(2025, 3, 19, 21, 43, 50, 246);
+            this.dtpdau.Value = new System.DateTime(2025, 6, 13, 0, 0, 0, 0);
             // 
             // dgv_qlhd
             // 
             this.dgv_qlhd.AllowUserToAddRows = false;
             this.dgv_qlhd.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_qlhd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_qlhd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_qlhd.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_qlhd.Location = new System.Drawing.Point(28, 190);
             this.dgv_qlhd.Name = "dgv_qlhd";
             this.dgv_qlhd.ReadOnly = true;
@@ -133,6 +152,7 @@
             this.dgv_qlhd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_qlhd_CellClick);
             this.dgv_qlhd.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_qlhd_CellFormatting);
             this.dgv_qlhd.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_qlhd_CellPainting);
+            this.dgv_qlhd.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_qlhd_RowPostPaint);
             this.dgv_qlhd.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgv_qlhd_RowPrePaint);
             // 
             // groupBox1
@@ -152,16 +172,19 @@
             // 
             // btnin
             // 
+            this.btnin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(68)))), ((int)(((byte)(62)))));
+            this.btnin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnin.Location = new System.Drawing.Point(316, 589);
             this.btnin.Name = "btnin";
             this.btnin.Size = new System.Drawing.Size(173, 47);
             this.btnin.TabIndex = 6;
             this.btnin.Text = "In hóa đơn";
-            this.btnin.UseVisualStyleBackColor = true;
+            this.btnin.UseVisualStyleBackColor = false;
             this.btnin.Click += new System.EventHandler(this.btnin_Click_1);
             // 
             // lbtong
             // 
+            this.lbtong.BackColor = System.Drawing.Color.White;
             this.lbtong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbtong.Location = new System.Drawing.Point(225, 513);
             this.lbtong.Name = "lbtong";
@@ -172,6 +195,7 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Location = new System.Drawing.Point(110, 513);
             this.label2.Name = "label2";
@@ -182,12 +206,13 @@
             // 
             // btnxoa
             // 
+            this.btnxoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(68)))), ((int)(((byte)(62)))));
             this.btnxoa.Location = new System.Drawing.Point(110, 589);
             this.btnxoa.Name = "btnxoa";
             this.btnxoa.Size = new System.Drawing.Size(184, 47);
             this.btnxoa.TabIndex = 2;
             this.btnxoa.Text = "Xóa";
-            this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.UseVisualStyleBackColor = false;
             this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click_1);
             // 
             // dgvtt

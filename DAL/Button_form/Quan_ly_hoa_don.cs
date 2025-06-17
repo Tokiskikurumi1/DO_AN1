@@ -14,6 +14,7 @@ namespace DAL.Button_form
         {
 
         }
+        // XEM CHI TIẾT HÓA ĐƠN 
         public DataTable GetChiTietHoaDon(int maHoaDon)
         {
             try
@@ -39,6 +40,7 @@ namespace DAL.Button_form
                 throw new Exception("Lỗi khi lấy chi tiết hóa đơn: " + ex.Message);
             }
         }
+        // XÓA HÓA ĐƠN
         public bool XoaHoaDon(int id)
         {
             try
@@ -59,11 +61,11 @@ namespace DAL.Button_form
                 return false;
             }
         }
-
+        // LẤY ID HÓA ĐƠN
         public bool CheckMHD(int id)
         {
             KetNoi();
-            string query = $"SELECT COUNT(*) FROM bill WHERE bill_ID =  {id}"; // Giả sử cột là "id"
+            string query = $"SELECT COUNT(*) FROM bill WHERE bill_ID =  {id}"; // lấy từ cột id ẩn
             cmd = new SqlCommand(query, conn);
             int i = (int)cmd.ExecuteScalar();
             NgatKn();
@@ -96,6 +98,7 @@ namespace DAL.Button_form
             }
         }
 
+        // LẤY DỮ LIỆU HÓA ĐƠN
         public DataTable LayDuLieuInHoaDon(int maHoaDon)
         {
             try

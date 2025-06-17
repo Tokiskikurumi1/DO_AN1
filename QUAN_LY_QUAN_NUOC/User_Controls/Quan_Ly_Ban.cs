@@ -229,6 +229,10 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                     MessageBox.Show("Thanh toán thành công, bàn đã được làm trống!");
                     // Cập nhật lại giao diện
                     dgvhoadon_ban.Rows.Clear(); // Xóa danh sách hóa đơn hiện tại
+
+                    //HIỆN FORM QR
+                    Form_QR qR = new Form_QR(tra_ve,lbtong.Text);
+                    qR.Show();
                     chonban = -1; // Reset bàn đã chọn
                     tonghoadon();
                     loadban();

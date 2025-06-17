@@ -171,3 +171,4 @@ D:\c\DO_AN_1_ver2\QUAN_LY_QUAN_NUOC\bin\Debug\zh-Hans\Microsoft.VisualStudio.Tes
 D:\c\DO_AN_1_ver2\QUAN_LY_QUAN_NUOC\bin\Debug\zh-Hant\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 D:\c\DO_AN_1_ver2\QUAN_LY_QUAN_NUOC\bin\Debug\System.Data.SqlClient.dll
 D:\c\DO_AN_1_ver2\QUAN_LY_QUAN_NUOC\bin\Debug\System.Data.SqlClient.xml
+D:\c\DO_AN_1_ver2\QUAN_LY_QUAN_NUOC\obj\Debug\QUAN_LY_QUAN_NUOC.Form_QR.resources

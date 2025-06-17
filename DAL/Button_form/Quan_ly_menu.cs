@@ -43,7 +43,7 @@ namespace DAL.Button_form
             adapter.Fill(dt);
             return dt;
         }
-
+        // THÊM MÓN VÀO MENU
         public bool ThemMon(int id, string name, int gia, string maDanhMuc)
         {
             try
@@ -121,7 +121,7 @@ namespace DAL.Button_form
                 return false;
             }
         }
-
+        // KIẺM TRA ID
         public bool CheckIdExists(int id)
         {
             KetNoi();
@@ -131,7 +131,7 @@ namespace DAL.Button_form
             NgatKn();
             return i > 0;
         }
-
+        // LẤY DANH MỤC
         public DataTable GetDanhMuc()
         {
             DataTable dt = dboload("list_dish");
@@ -142,7 +142,7 @@ namespace DAL.Button_form
 
             return dt;
         }
-
+        // TÌM KIẾM 
         public DataTable searchs_tt(string name)
         {
             return dboSearch(name);

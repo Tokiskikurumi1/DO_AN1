@@ -63,6 +63,16 @@ namespace QUAN_LY_QUAN_NUOC.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _483835871_964949928953050_954810413308957127_n {
+            get {
+                object obj = ResourceManager.GetObject("483835871_964949928953050_954810413308957127_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_nv_v2 {
             get {
                 object obj = ResourceManager.GetObject("add_nv_v2", resourceCulture);

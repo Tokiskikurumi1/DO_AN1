@@ -32,16 +32,20 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgv_qlhd.CellPainting += dgv_qlhd_CellPainting;
             dgv_qlhd.RowPrePaint += dgv_qlhd_RowPrePaint;
 
+            // MÀU ROW DỮ LIỆU
             dgvtt.DefaultCellStyle.SelectionBackColor = Color.LightYellow;
             dgvtt.DefaultCellStyle.SelectionForeColor = Color.Peru;
+
             dgvtt.RowTemplate.Height = 40; // Đặt chiều cao của mỗi hàng
+            dgv_qlhd.RowTemplate.Height = 40;
+
             dgvtt.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
             dgv_qlhd.CellFormatting += dgv_qlhd_CellFormatting;
             dgvtt.CellFormatting += dgvtt_CellFormatting;
 
         }
-
+        // KIỂM TRA QUYỀN HẠN 
         void kiem_tra()
         {
             if(quyenHan == 2)
@@ -54,11 +58,12 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             dgv_qlhd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvtt.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_qlhd.TopLeftHeaderCell.Value = "STT";
-            dgv_qlhd.Columns[0].FillWeight = 10;
-            dgv_qlhd.Columns[1].FillWeight = 30;
-            dgv_qlhd.Columns[2].FillWeight = 20;
-            dgv_qlhd.Columns[3].FillWeight = 20;
-            dgv_qlhd.Columns[4].FillWeight = 10;
+            // chia giá trị cột 
+            dgv_qlhd.Columns[0].FillWeight = 7;
+            dgv_qlhd.Columns[1].FillWeight = 20;
+            dgv_qlhd.Columns[2].FillWeight = 15;
+            dgv_qlhd.Columns[3].FillWeight = 15;
+            dgv_qlhd.Columns[4].FillWeight = 7;
             dgv_qlhd.Columns[5].FillWeight = 10;
 
             dgv_qlhd.Columns[0].HeaderText = "Mã hóa đơn";
@@ -104,9 +109,15 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 MessageBox.Show("Lỗi khi tải dữ liệu");
             }
         }
+        // MAIN LOAD
+        private void Quan_ly_hoa_don_Load_1(object sender, EventArgs e)
+        {
+            load();
+            loaddgv();
+            dgv_qlhd.RowPostPaint += dataGridView1_RowPostPaint;
+        }
 
-
-
+        // HIỆN CHI TIẾT HÓA ĐƠN 
 
         private void HienThiChiTietHoaDon(int mahoadon)
         {
@@ -145,6 +156,7 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             }
         }
 
+        // TÍNH TỔNG HÓA ĐƠN 
 
         void tonghoadon()
         {
@@ -176,12 +188,9 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
             }
         }
 
-        private void Quan_ly_hoa_don_Load_1(object sender, EventArgs e)
-        {
-            load();
-            loaddgv();
-            dgv_qlhd.RowPostPaint += dataGridView1_RowPostPaint;
-        }
+
+
+        
 
         private void dgv_qlhd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -388,6 +397,20 @@ namespace QUAN_LY_QUAN_NUOC.User_Controls
                 {
                     MessageBox.Show($"Lỗi định dạng giá: {ex.Message}");
                 }
+            }
+        }
+
+        private void dgv_qlhd_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            string rowNumber = (e.RowIndex + 1).ToString();
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgv_qlhd.RowHeadersWidth, e.RowBounds.Height);
+
+            Font rowNumberFont = new Font(this.Font.FontFamily, 10, FontStyle.Bold);
+
+            using (var centerFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+            {
+                e.Graphics.DrawString(rowNumber, rowNumberFont, SystemBrushes.ControlText, headerBounds, centerFormat);
             }
         }
     }
