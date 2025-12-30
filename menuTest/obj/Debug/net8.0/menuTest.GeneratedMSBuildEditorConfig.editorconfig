@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = menuTest
-build_property.ProjectDir = D:\c\DO_AN_1_ver2\menuTest\
+build_property.ProjectDir = C:\HTML\testGit\DO_AN1\menuTest\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

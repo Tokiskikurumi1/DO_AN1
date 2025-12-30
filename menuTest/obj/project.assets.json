@@ -1186,11 +1186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\c\\DO_AN_1_ver2\\menuTest\\menuTest.csproj",
+      "projectUniqueName": "C:\\HTML\\testGit\\DO_AN1\\menuTest\\menuTest.csproj",
       "projectName": "menuTest",
-      "projectPath": "D:\\c\\DO_AN_1_ver2\\menuTest\\menuTest.csproj",
+      "projectPath": "C:\\HTML\\testGit\\DO_AN1\\menuTest\\menuTest.csproj",
       "packagesPath": "C:\\Users\\minhn\\.nuget\\packages\\",
-      "outputPath": "D:\\c\\DO_AN_1_ver2\\menuTest\\obj\\",
+      "outputPath": "C:\\HTML\\testGit\\DO_AN1\\menuTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1205,23 +1205,24 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\c\\DO_AN_1_ver2\\BLL\\BLL.csproj": {
-              "projectPath": "D:\\c\\DO_AN_1_ver2\\BLL\\BLL.csproj"
+            "C:\\HTML\\testGit\\DO_AN1\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\HTML\\testGit\\DO_AN1\\BLL\\BLL.csproj"
             },
-            "D:\\c\\DO_AN_1_ver2\\DAL\\DAL.csproj": {
-              "projectPath": "D:\\c\\DO_AN_1_ver2\\DAL\\DAL.csproj"
+            "C:\\HTML\\testGit\\DO_AN1\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\HTML\\testGit\\DO_AN1\\DAL\\DAL.csproj"
             },
-            "D:\\c\\DO_AN_1_ver2\\DTO\\DTO.csproj": {
-              "projectPath": "D:\\c\\DO_AN_1_ver2\\DTO\\DTO.csproj"
+            "C:\\HTML\\testGit\\DO_AN1\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\HTML\\testGit\\DO_AN1\\DTO\\DTO.csproj"
             },
-            "D:\\c\\DO_AN_1_ver2\\QUAN_LY_QUAN_NUOC\\QUAN_LY_QUAN_NUOC.csproj": {
-              "projectPath": "D:\\c\\DO_AN_1_ver2\\QUAN_LY_QUAN_NUOC\\QUAN_LY_QUAN_NUOC.csproj"
+            "C:\\HTML\\testGit\\DO_AN1\\QUAN_LY_QUAN_NUOC\\QUAN_LY_QUAN_NUOC.csproj": {
+              "projectPath": "C:\\HTML\\testGit\\DO_AN1\\QUAN_LY_QUAN_NUOC\\QUAN_LY_QUAN_NUOC.csproj"
             }
           }
         }
